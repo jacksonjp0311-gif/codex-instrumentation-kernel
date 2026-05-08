@@ -1,7 +1,7 @@
 # Codex Instrumentation Kernel
 
 **Current version:** CIK v0.8 — Evidence Graph and Cross-Run Query Layer  
-**Status:** Runnable local-first Codex instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, and v0.7 multi-instrument orchestration with composed evidence artifacts.  
+**Status:** Runnable local-first Codex instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, v0.7 multi-instrument orchestration with composed evidence artifacts, and v0.8 evidence graph / cross-run query navigation.  
 **Author:** James Paul Jackson / @unifiedenergy11
 
 ---
@@ -12,40 +12,44 @@
 
 Codex Instrumentation Kernel, or **CIK**, is a compact software kernel for turning the Codex ΔΦ framework into executable instrumentation.
 
-CIK does not claim intelligence, consciousness, truth, security, formal verification, supply-chain provenance, autonomous memory, or code correctness. It measures repository-context drift, emits evidence artifacts, validates controlled perturbation behavior, indexes outputs into a hash-linked artifact surface, verifies local run envelopes, consumes verification evidence conservatively, reconciles downgrade reasons, validates instrument contracts, and now orchestrates registry-valid instruments through an explicit run plan.
+CIK does not claim intelligence, consciousness, truth, security, formal verification, supply-chain provenance, autonomous memory, or code correctness. It measures repository-context drift, emits evidence artifacts, validates controlled perturbation behavior, indexes outputs into a hash-linked artifact surface, verifies local run envelopes, consumes verification evidence conservatively, reconciles downgrade reasons, validates instrument contracts, orchestrates registry-valid instruments through an explicit run plan, and now builds a bounded evidence graph over emitted artifacts.
 
-CIK v0.7 adds the **Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer**:
+CIK v0.8 adds the **Evidence Graph and Cross-Run Query Layer**:
 
-- Declares an orchestration run plan before execution.
-- Validates the instrument registry before orchestration.
-- Executes enabled registry-valid instruments.
-- Emits per-instrument result records.
-- Preserves skipped, blocked, failed, warning, and passing instruments.
-- Composes evidence without merging claim types.
-- Emits a composed downgrade surface.
-- Emits orchestration state JSON.
-- Emits orchestration evidence packages.
-- Preserves RootMirror Full compatibility.
-- Preserves Tesseract-lite compatibility.
-- Preserves CIF-B classification and non-claim locks.
-- Treats optional blocked/skipped/failed instruments as warnings, not clean passes.
-- Treats required blocked/failed instruments as orchestration failures.
+- Scans output artifacts read-only.
+- Supports JSON object and JSON array payload shapes.
+- Emits `evidence_graph.json`.
+- Emits `evidence_graph_report.md`.
+- Emits `evidence_graph_evidence_package.json`.
+- Builds run, instrument, artifact, evidence, downgrade, and claim nodes.
+- Builds artifact-backed graph edges.
+- Marks missing, inferred, ambiguous, and orphan relations.
+- Adds cross-run query navigation.
+- Adds artifact lineage query.
+- Adds downgrade history query.
+- Adds claim/evidence lookup.
+- Preserves v0.7 orchestration compatibility.
+- Preserves v0.6 integrated compatibility.
+- Preserves README/RCC anchor contracts.
+- Preserves non-claim locks.
 
-The latest validated v0.7 repair semantics are:
+The latest validated v0.8 repair semantics are:
 
-- Required fail/blocked → **fail**
-- Optional fail/blocked/warning/skipped → **warning**
-- All clean → **pass**
+- JSON object artifacts → scanned as single mapping payloads.
+- JSON array artifacts → scanned through dictionary items inside the list.
+- Unsupported or unreadable JSON → treated as non-JSON payload without crashing.
+- Graph linkage → navigation only, not truth.
+- Artifact lineage → reconstruction aid, not provenance.
 
 The current local verification surface has passed:
 
+- v0.8 focused evidence graph tests
 - v0.7 focused orchestration tests
 - v0.6 compatibility tests
 - README/RCC tests
-- Full unit suite: **72 tests OK**
+- Full unit suite
+- v0.8 evidence graph smoke
 - v0.7 orchestration smoke
-- RootMirror Full compatibility smoke
-- Tesseract-lite compatibility
 - v0.6 integrated compatibility smoke
 
 ## What This Is
@@ -65,7 +69,8 @@ The current local verification surface has passed:
 - A multi-instrument orchestration substrate.
 - A cross-instrument evidence composition system.
 - A local-first evidence compiler for Codex instrumentation runs.
-- A testable Python package with state, ledger, evidence, report, semantic, RootMirror, Tesseract, and orchestration artifacts.
+- A bounded evidence graph and cross-run query layer.
+- A testable Python package with state, ledger, evidence, report, semantic, RootMirror, Tesseract, orchestration, and evidence graph artifacts.
 
 ## What This Is Not
 
@@ -89,6 +94,10 @@ The current local verification surface has passed:
 - Not permission to treat evidence composition as truth.
 - Not permission to treat multi-instrument agreement as external validation.
 - Not permission to hide skipped, blocked, failed, or warning instruments.
+- Not permission to treat graph linkage as truth.
+- Not permission to treat queryability as correctness.
+- Not permission to treat artifact lineage as provenance.
+- Not permission to treat evidence graph output as autonomous memory.
 
 ## Version Lineage
 
@@ -151,7 +160,7 @@ When using an AI assistant on this repo:
 2. Read the repository context index.
 3. Read the RCC context map.
 4. Inspect affected modules before patching.
-5. Preserve v0.1-v0.7 behavior.
+5. Preserve v0.1-v0.8 behavior.
 6. Run tests before claiming success.
 7. Keep non-claim locks intact.
 8. Update README and mini READMEs when architecture changes.
@@ -162,7 +171,7 @@ When using an AI assistant on this repo:
 13. Do not treat orchestration as correctness.
 14. Do not treat composed evidence as truth.
 15. Do not hide failed, skipped, blocked, or warning instruments.
-16. Do not advance toward v0.8 until v0.7 remains clean from HEAD.
+16. Do not advance toward v0.9 until v0.8 remains clean from HEAD.
 
 ## RCC documentation contract
 
@@ -229,6 +238,7 @@ Recommended reconstruction order:
 13. Tesseract-lite index.
 14. RootMirror Full verification output.
 15. Orchestration state and evidence output.
+16. Evidence graph output.
 
 ## Non-Claim Locks for AI Use
 
@@ -252,14 +262,18 @@ Recommended reconstruction order:
 - Registry validity is not instrument validity.
 - Evidence composition is not a security proof.
 - CIF7-ready is not CIF8.
+- Graph linkage is not truth.
+- Queryability is not correctness.
+- Artifact lineage is not provenance.
+- Evidence graph is not autonomous memory.
 
 ---
 
 # PART III — EXECUTION AND ARTIFACT SURFACE
 
-## Current v0.7 Capability
+## Current v0.8 Capability
 
-CIK v0.7 can:
+CIK v0.8 can:
 
 1. Run the RCC drift instrument.
 2. Compute repository-context ΔΦ.
@@ -303,6 +317,26 @@ CIK v0.7 can:
 40. Emit orchestration evidence package.
 41. Preserve RootMirror Full compatibility.
 42. Preserve Tesseract-lite compatibility.
+43. Scan output artifacts read-only.
+44. Accept JSON object and JSON array artifact payloads.
+45. Emit evidence graph JSON.
+46. Emit evidence graph Markdown report.
+47. Emit evidence graph evidence package.
+48. Build run nodes.
+49. Build instrument nodes.
+50. Build artifact nodes.
+51. Build evidence nodes.
+52. Build downgrade nodes.
+53. Build claim nodes.
+54. Build artifact-backed graph edges.
+55. Mark missing, inferred, ambiguous, and orphan relations.
+56. Query runs.
+57. Query artifacts for run.
+58. Query evidence for run.
+59. Query downgrade history.
+60. Query claim/evidence declarations.
+61. Query artifact lineage.
+62. Preserve graph non-claim locks.
 
 ## Core Commands
 
@@ -356,6 +390,26 @@ Run v0.7 orchestration directly:
     $env:PYTHONPATH = ".\src"
     python -m cik.orchestration --repo-root "." --out ".\outputs" --plan ".\configs\orchestration\default_run_plan.json"
 
+
+Run v0.8 evidence graph smoke:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v08_evidence_graph.ps1"
+
+Build v0.8 evidence graph directly:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    $env:PYTHONPATH = ".\src"
+    python -m cik.evidence_graph build --out ".\outputs"
+
+Query v0.8 evidence graph:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    $env:PYTHONPATH = ".\src"
+    python -m cik.evidence_graph query --out ".\outputs" --kind runs
+    python -m cik.evidence_graph query --out ".\outputs" --kind downgrades
+    python -m cik.evidence_graph query --out ".\outputs" --kind claim-evidence --claim "orchestration_is_not_correctness"
+
 ## Main Output Folders
 
 | Folder | Purpose |
@@ -370,6 +424,7 @@ Run v0.7 orchestration directly:
 | outputs/perturbation/ | Perturbation sweep artifacts |
 | outputs/tesseract/ | Tesseract-lite artifact index |
 | outputs/orchestration/ | v0.7 run plans, orchestration states, composed evidence bundles, per-instrument records, and orchestration reports |
+| outputs/evidence_graph/ | v0.8 evidence graph JSON and Markdown report |
 
 ## Tesseract-lite Outputs
 
@@ -437,6 +492,31 @@ The orchestration layer records:
 - Orchestration evidence package.
 - Non-claim locks.
 
+
+## Evidence Graph Outputs
+
+CIK v0.8 emits:
+
+    outputs/evidence_graph/evidence_graph.json
+    outputs/evidence_graph/evidence_graph_report.md
+    outputs/evidence/evidence_graph_evidence_package.json
+
+The evidence graph layer records:
+
+- Run nodes.
+- Instrument nodes.
+- Artifact nodes.
+- Evidence nodes.
+- Downgrade nodes.
+- Claim nodes.
+- Artifact-backed graph edges.
+- Missing / inferred / ambiguous / orphan validation surfaces.
+- Cross-run query surfaces.
+- Artifact lineage surfaces.
+- Downgrade history surfaces.
+- Claim/evidence lookup surfaces.
+- Non-claim locks.
+
 ## Instrumentation Loop
 
     Repository context
@@ -463,20 +543,23 @@ The orchestration layer records:
     -> composed downgrade surface
     -> orchestration state
     -> orchestration evidence package
+    -> evidence graph build
+    -> cross-run query surface
+    -> artifact lineage / downgrade history / claim-evidence lookup
 
 ## Current Downgrade Surface
 
-v0.7 closes the prior orchestration gap:
-
-    multiple instruments do not yet run together as a composed execution plan
-
-The current remaining next-stage gap is graph/query-level:
+v0.8 closes the prior graph/query gap:
 
     Artifacts are emitted and indexed, but they are not yet promoted into a first-class evidence graph with cross-run queries, artifact lineage queries, downgrade history, run-family grouping, and claim/evidence lookup.
 
+The current remaining next-stage gap is full Tesseract/dashboard readiness:
+
+    Evidence graph outputs are emitted and queryable, but they are not yet promoted into a full Tesseract artifact lattice with dashboard-ready summaries, visualization surfaces, maturity views, and public release packaging.
+
 This is why the next version is:
 
-    CIK v0.8 — Evidence Graph and Cross-Run Query Layer
+    CIK v0.9 — Full Tesseract and Dashboard-Ready Package
 
 ## Required local verification
 
@@ -498,6 +581,11 @@ Before treating the repository as locally aligned, run:
     python -m unittest tests.test_v07_evidence_composition -v
     python -m unittest tests.test_v07_partial_failure_preservation -v
     python -m unittest tests.test_v07_orchestration_executor -v
+    python -m unittest tests.test_v08_graph_builder -v
+    python -m unittest tests.test_v08_graph_queries -v
+    python -m unittest tests.test_v08_downgrade_history -v
+    python -m unittest tests.test_v08_claim_evidence_lookup -v
+    python -m unittest tests.test_v08_graph_validation -v
 
 For full local verification, run:
 
@@ -506,7 +594,7 @@ For full local verification, run:
     powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v07_orchestration.ps1"
     powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v06_integrated.ps1"
 
-This verification surface does not prove code correctness, semantic truth, security, intelligence, consciousness, autonomous memory, external validity, or artifact meaning. It only confirms that the declared local README/RCC, Tesseract-lite, RootMirror Full, v0.6 integration, and v0.7 orchestration contract checks pass.
+This verification surface does not prove code correctness, semantic truth, security, intelligence, consciousness, autonomous memory, external validity, or artifact meaning. It only confirms that the declared local README/RCC, Tesseract-lite, RootMirror Full, v0.6 integration, v0.7 orchestration, and v0.8 evidence graph contract checks pass.
 
 ## Minimal Verification Checklist
 
@@ -522,6 +610,10 @@ Before locking a version:
     [ ] Orchestration run plan emits
     [ ] Orchestration state emits
     [ ] Orchestration evidence package emits
+    [ ] Evidence graph JSON emits
+    [ ] Evidence graph report emits
+    [ ] Evidence graph evidence package emits
+    [ ] Evidence graph query smoke passes
         [ ] Optional degradation is preserved as warning
     [ ] Required failure is preserved as failure
     [ ] Non-claim locks preserved
@@ -592,6 +684,11 @@ CIK v0.7 turns the contract-aware v0.6 kernel into a governed orchestration runt
     python -m unittest tests.test_v07_evidence_composition -v
     python -m unittest tests.test_v07_partial_failure_preservation -v
     python -m unittest tests.test_v07_orchestration_executor -v
+    python -m unittest tests.test_v08_graph_builder -v
+    python -m unittest tests.test_v08_graph_queries -v
+    python -m unittest tests.test_v08_downgrade_history -v
+    python -m unittest tests.test_v08_claim_evidence_lookup -v
+    python -m unittest tests.test_v08_graph_validation -v
     python -m cik.orchestration --repo-root "." --out ".\outputs" --plan ".\configs\orchestration\default_run_plan.json"
     powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v07_orchestration.ps1"
 
