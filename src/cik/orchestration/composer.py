@@ -4,7 +4,18 @@ from typing import Any, Dict, List
 
 
 def composed_status(results: List[Dict[str, Any]]) -> str:
+    """Return composed orchestration status.
+
+    v0.7 rule:
+    - Required fail/blocked => fail.
+    - Any optional fail/blocked/warning/skipped => warning.
+    - All required pass and no optional degradation => pass.
+
+    This preserves partial-failure evidence without letting optional failures
+    erase successful required results or silently disappear into pass.
+    """
     required = [r for r in results if r.get("required")]
+
     required_blocked_or_failed = [
         r for r in required
         if r.get("status") in {"fail", "blocked"}
@@ -13,12 +24,12 @@ def composed_status(results: List[Dict[str, Any]]) -> str:
     if required_blocked_or_failed:
         return "fail"
 
-    warnings = [
+    degraded_optional_or_warning = [
         r for r in results
-        if r.get("status") in {"warning", "skipped"}
+        if r.get("status") in {"warning", "skipped", "fail", "blocked"}
     ]
 
-    if warnings:
+    if degraded_optional_or_warning:
         return "warning"
 
     return "pass"
