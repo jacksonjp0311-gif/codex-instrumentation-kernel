@@ -1,7 +1,7 @@
 # Codex Instrumentation Kernel
 
-**Current version:** CIK v0.5 — Full RootMirror Verification Layer  
-**Status:** Runnable instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, and Full RootMirror run-envelope verification.  
+**Current version:** CIK v0.6 — Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer  
+**Status:** Runnable instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, and contract-aware instrument registry governance.  
 **Author:** James Paul Jackson / @unifiedenergy11
 
 ---
@@ -14,7 +14,7 @@ Codex Instrumentation Kernel, or **CIK**, is a compact software kernel for turni
 
 CIK does not claim intelligence, consciousness, truth, security, or code correctness. It measures repository-context drift, emits evidence artifacts, validates controlled perturbation behavior, indexes outputs into a hash-linked artifact surface, and now verifies the local run envelope that produced those outputs.
 
-CIK v0.5 adds the **Full RootMirror Verification Layer**:
+CIK v0.6 adds the **Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer**:
 
 - Captures pre-run root anchors.
 - Captures post-run root anchors.
@@ -76,8 +76,9 @@ The latest local RootMirror full run state is:
 | v0.3B | Datetime + README Alignment Patch | Complete |
 | v0.3C | Core Scoring Integration Patch | Complete |
 | v0.4 | Tesseract-lite Artifact Indexing Layer | Complete |
-| v0.5 | Full RootMirror Verification Layer | Current |
-| v0.6 | Core Scoring and Maturity Integration Layer | Next |
+| v0.5 | Full RootMirror Verification Layer | Complete |
+| v0.6 | Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer | Current |
+| v0.7 | Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer | Next |
 
 ---
 
@@ -113,7 +114,7 @@ When using an AI assistant on this repo:
 2. Read the repository context index.
 3. Read the RCC context map.
 4. Inspect affected modules before patching.
-5. Preserve v0.1-v0.5 behavior.
+5. Preserve v0.1-v0.6 behavior.
 6. Run tests before claiming success.
 7. Keep non-claim locks intact.
 8. Update README and mini READMEs when architecture changes.
@@ -202,9 +203,9 @@ Recommended reconstruction order:
 
 # PART III — EXECUTION AND ARTIFACT SURFACE
 
-## Current v0.5 Capability
+## Current v0.6 Capability
 
-CIK v0.5 can:
+CIK v0.6 can:
 
 1. Run the RCC drift instrument.
 2. Compute repository-context ΔΦ.
@@ -228,6 +229,12 @@ CIK v0.5 can:
 20. Verify artifact manifest closure.
 21. Emit RootMirror full JSON / Markdown / evidence outputs.
 22. Remove the Full RootMirror downgrade only when verification passes.
+23. Consume RootMirror Full evidence as a core scoring signal.
+24. Reconcile downgrade reasons from matching evidence only.
+25. Classify maturity through v0.6 evidence-bound signals.
+26. Preserve CIF-B classification under internal closure.
+27. Validate instrument plugin contracts.
+28. Register RCC Drift through a contract-aware instrument registry.
 
 ## Core Commands
 
@@ -260,11 +267,16 @@ Run RootMirror full verification:
     $env:PYTHONPATH = ".\src"
     python -m cik.rootmirror_full --repo-root "." --out ".\outputs" --target-repo ".\tests\fixtures\tiny_repo_with_context"
 
-Run v0.5 integrated smoke:
+Run v0.5 RootMirror Full smoke:
 
     cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
     powershell -ExecutionPolicy Bypass -File ".\scripts\run_rootmirror_full.ps1"
 
+
+Run v0.6 integrated smoke:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v06_integrated.ps1"
 ## Main Output Folders
 
 | Folder | Purpose |
@@ -351,11 +363,11 @@ The latest local smoke showed:
 
 The next intended downgrade surface is integration-level, not proof-level:
 
-    RootMirror full is implemented as a verification layer, but core cik run scoring and maturity promotion do not yet automatically consume RootMirror full evidence.
+    RootMirror Full is now consumed by v0.6 scoring, maturity, and downgrade reconciliation surfaces. The remaining gap is orchestration: multiple instruments do not yet run together as a composed execution plan.
 
 This is why the next version is:
 
-    CIK v0.6 — Core Scoring, Maturity, and Instrument Registry Integration Layer
+    CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer
 
 ## Required local verification
 
@@ -400,9 +412,9 @@ Before locking a version:
 
 Proceed to:
 
-    CIK v0.6 — Core Scoring, Maturity, and Instrument Registry Integration Layer
+    CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer
 
-CIK v0.6 is the current local evolution layer after CIK v0.5.
+CIK v0.6 is the current committed local layer. CIK v0.7 is the next target.
 
 <!-- CIK-V06-BEGIN -->
 ## CIK v0.6 — Core Scoring and Instrument Registry Integration Layer
@@ -431,3 +443,68 @@ CIK v0.6 promotes RootMirror Full from a sidecar verification layer into a core-
 
 Integrated scoring is not truth. Maturity is not correctness. Instrument registry validity is not instrument validity. RootMirror Full remains continuity verification only.
 <!-- CIK-V06-END -->
+
+<!-- CIK-ROADMAP-BEGIN -->
+## Roadmap to CIK v1.0
+
+### v0.7 — Multi-Instrument Execution Orchestration
+
+Goal: run multiple registered instruments through one declared execution plan and compose their evidence without collapsing claims.
+
+Adds:
+
+- instrument run plans
+- multi-instrument scheduler
+- per-instrument run records
+- cross-instrument evidence composition
+- composed downgrade surface
+- orchestration evidence package
+- orchestration smoke tests
+
+### v0.8 — Evidence Graph and Query Layer
+
+Goal: transform state, ledger, RootMirror, Tesseract-lite, perturbation, and registry outputs into a queryable evidence graph.
+
+Adds:
+
+- evidence graph JSON
+- cross-run search
+- artifact lineage queries
+- run-family grouping
+- downgrade history query
+- claim/evidence lookup
+
+### v0.9 — Full Tesseract and Dashboard-Ready Package
+
+Goal: evolve Tesseract-lite into a fuller bounded artifact lattice with dashboard-ready summaries.
+
+Adds:
+
+- full Tesseract index contract
+- dashboard JSON
+- artifact lineage visualization surface
+- evidence maturity views
+- RCC/CIF/AIT summary surfaces
+
+### v1.0 — Stable Local-First CIK Release
+
+Goal: lock CIK as a stable local-first Codex instrumentation kernel.
+
+v1.0 must include:
+
+- stable CLI
+- stable instrument plugin contract
+- stable evidence package schema
+- stable RootMirror Full verification
+- stable Tesseract artifact index
+- stable README/RCC reconstruction surface
+- full local validation command
+- clean local Git state
+- optional GitHub release readiness
+
+### End-goal lock
+
+CIK v1.0 is a local-first evidence compiler for Codex instrumentation runs.
+
+It does not prove truth, correctness, security, intelligence, consciousness, autonomous memory, or external validity.
+<!-- CIK-ROADMAP-END -->
