@@ -1,0 +1,9 @@
+{
+  "schema": "CIK-v0.1-config",
+  "default_instrument": "rcc-drift",
+  "outputs": "outputs",
+  "non_claim_locks": {
+    "coherence_is_not_truth": true,
+    "cifscore_is_not_truth": true
+  }
+}
