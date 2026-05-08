@@ -109,3 +109,42 @@ CIK v0.6 integrates RootMirror Full evidence into core scoring and maturity surf
 
 CIK v0.6 makes verification evidence operational. It does not make scoring truth, maturity correctness, registry validity instrument validity, or RootMirror Full security proof.
 <!-- CIK-V06-END -->
+
+<!-- CIK-V07-BEGIN -->
+## CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer
+
+CIK v0.7 adds governed orchestration over registry-valid instruments.
+
+### New orchestration modules
+
+- `src/cik/orchestration/run_plan.py`
+- `src/cik/orchestration/executor.py`
+- `src/cik/orchestration/composer.py`
+- `src/cik/orchestration/writer.py`
+- `src/cik/orchestration/__main__.py`
+
+### New config
+
+- `configs/orchestration/default_run_plan.json`
+
+### New outputs
+
+- `outputs/orchestration/*_run_plan.json`
+- `outputs/orchestration/*_orchestration_state.json`
+- `outputs/orchestration/*_composed_evidence_bundle.json`
+- `outputs/orchestration/*_instrument_results.json`
+- `outputs/orchestration/*_orchestration_report.md`
+- `outputs/evidence/*_orchestration_evidence_package.json`
+
+### New validation
+
+- `tests/test_v07_run_plan.py`
+- `tests/test_v07_evidence_composition.py`
+- `tests/test_v07_partial_failure_preservation.py`
+- `tests/test_v07_orchestration_executor.py`
+- `scripts/run_cik_v07_orchestration.ps1`
+
+### Non-claim boundary
+
+Orchestration is not correctness. Composition is not truth. Multi-instrument agreement is not external validation. Registry validity is not instrument validity.
+<!-- CIK-V07-END -->

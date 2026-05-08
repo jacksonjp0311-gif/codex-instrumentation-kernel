@@ -110,10 +110,10 @@
                             "cifscore_is_not_truth":  true,
                             "coherence_is_not_truth":  true
                         },
-    "current_version":  "CIK v0.6",
-    "current_layer":  "Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer",
-    "status":  "v0.6 validated locally; RootMirror Full evidence consumption, downgrade reconciliation, and instrument registry contract tests pass.",
-    "last_updated":  "2026-05-08T13:33:43-04:00",
+    "current_version":  "CIK v0.7",
+    "current_layer":  "Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer",
+    "status":  "v0.7 validated locally; run plans, registry-gated execution, per-instrument records, evidence composition, composed downgrade surface, orchestration state/evidence package, RootMirror Full compatibility, and Tesseract-lite compatibility pass.",
+    "last_updated":  "2026-05-08T13:46:47-04:00",
     "cik_v05":  {
                     "version":  "CIK v0.5",
                     "layer":  "Full RootMirror Verification Layer",
@@ -186,5 +186,40 @@
                                             "scoring_is_not_truth":  true
                                         },
                     "next_version":  "CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer"
+                },
+    "cik_v07":  {
+                    "version":  "CIK v0.7",
+                    "layer":  "Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer",
+                    "current":  true,
+                    "implementation_files":  [
+                                                 "src/cik/orchestration/__init__.py",
+                                                 "src/cik/orchestration/run_plan.py",
+                                                 "src/cik/orchestration/executor.py",
+                                                 "src/cik/orchestration/composer.py",
+                                                 "src/cik/orchestration/writer.py",
+                                                 "src/cik/orchestration/__main__.py",
+                                                 "configs/orchestration/default_run_plan.json",
+                                                 "outputs/orchestration/README.md",
+                                                 "docs/protocols/orchestration_contract.md",
+                                                 "scripts/run_cik_v07_orchestration.ps1"
+                                             ],
+                    "test_files":  [
+                                       "tests/test_v07_run_plan.py",
+                                       "tests/test_v07_evidence_composition.py",
+                                       "tests/test_v07_partial_failure_preservation.py",
+                                       "tests/test_v07_orchestration_executor.py"
+                                   ],
+                    "validation_commands":  [
+                                                "python -m unittest discover -s tests",
+                                                "powershell -ExecutionPolicy Bypass -File .\\scripts\\run_cik_v07_orchestration.ps1"
+                                            ],
+                    "non_claim_locks":  {
+                                            "evidence_composition_is_not_security_proof":  true,
+                                            "multi_instrument_agreement_is_not_external_validation":  true,
+                                            "orchestration_is_not_correctness":  true,
+                                            "composition_is_not_truth":  true,
+                                            "registry_validity_is_not_instrument_validity":  true
+                                        },
+                    "next_version":  "CIK v0.8 — Evidence Graph and Cross-Run Query Layer"
                 }
 }

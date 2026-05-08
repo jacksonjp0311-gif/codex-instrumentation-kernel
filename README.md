@@ -1,7 +1,7 @@
 # Codex Instrumentation Kernel
 
-**Current version:** CIK v0.6 — Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer  
-**Status:** Runnable instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, and contract-aware instrument registry governance.  
+**Current version:** CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer  
+**Status:** Runnable instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, and v0.7 multi-instrument orchestration with composed evidence artifacts.  
 **Author:** James Paul Jackson / @unifiedenergy11
 
 ---
@@ -77,8 +77,9 @@ The latest local RootMirror full run state is:
 | v0.3C | Core Scoring Integration Patch | Complete |
 | v0.4 | Tesseract-lite Artifact Indexing Layer | Complete |
 | v0.5 | Full RootMirror Verification Layer | Complete |
-| v0.6 | Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer | Current |
-| v0.7 | Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer | Next |
+| v0.6 | Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer | Complete |
+| v0.7 | Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer | Current |
+| v0.8 | Evidence Graph and Cross-Run Query Layer | Next |
 
 ---
 
@@ -414,7 +415,7 @@ Proceed to:
 
     CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer
 
-CIK v0.6 is the current committed local layer. CIK v0.7 is the next target.
+CIK v0.7 is the current committed local evolution target. CIK v0.8 is the next target: Evidence Graph and Cross-Run Query Layer.
 
 <!-- CIK-V06-BEGIN -->
 ## CIK v0.6 — Core Scoring and Instrument Registry Integration Layer
@@ -508,3 +509,45 @@ CIK v1.0 is a local-first evidence compiler for Codex instrumentation runs.
 
 It does not prove truth, correctness, security, intelligence, consciousness, autonomous memory, or external validity.
 <!-- CIK-ROADMAP-END -->
+
+<!-- CIK-V07-BEGIN -->
+## CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer
+
+CIK v0.7 turns the contract-aware v0.6 kernel into a governed orchestration runtime.
+
+### v0.7 adds
+
+- Run plan schema.
+- Default orchestration run plan.
+- Registry-gated execution.
+- Per-instrument result records.
+- Cross-instrument composed evidence bundle.
+- Composed downgrade surface.
+- Orchestration state object.
+- Orchestration evidence package.
+- Partial-failure preservation.
+- RootMirror Full compatibility.
+- Tesseract-lite compatibility.
+
+### v0.7 commands
+
+    python -m unittest tests.test_v07_run_plan -v
+    python -m unittest tests.test_v07_evidence_composition -v
+    python -m unittest tests.test_v07_partial_failure_preservation -v
+    python -m unittest tests.test_v07_orchestration_executor -v
+    python -m cik.orchestration --repo-root "." --out ".\outputs" --plan ".\configs\orchestration\default_run_plan.json"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v07_orchestration.ps1"
+
+### v0.7 output surface
+
+- `outputs/orchestration/*_run_plan.json`
+- `outputs/orchestration/*_orchestration_state.json`
+- `outputs/orchestration/*_composed_evidence_bundle.json`
+- `outputs/orchestration/*_instrument_results.json`
+- `outputs/orchestration/*_orchestration_report.md`
+- `outputs/evidence/*_orchestration_evidence_package.json`
+
+### v0.7 non-claim lock
+
+Orchestration is not correctness. Composition is not truth. Multi-instrument agreement is not external validation. Registry validity is not instrument validity. Evidence composition is not a security proof.
+<!-- CIK-V07-END -->
