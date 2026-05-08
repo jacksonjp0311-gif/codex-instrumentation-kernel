@@ -186,7 +186,7 @@ Required RCC surfaces:
 
 RCC documentation improves orientation and maintenance discipline. It does not prove code correctness, runtime correctness, security, truth, or artifact meaning.
 
-## AI Non-Claim Lock
+## AI non-claim lock
 
 AI assistants working on this repository must preserve the following boundary:
 
@@ -521,7 +521,7 @@ Before locking a version:
     [ ] Orchestration run plan emits
     [ ] Orchestration state emits
     [ ] Orchestration evidence package emits
-    [ ] Optional degradation is preserved as warning
+        [ ] Optional degradation is preserved as warning
     [ ] Required failure is preserved as failure
     [ ] Non-claim locks preserved
     [ ] README updated
