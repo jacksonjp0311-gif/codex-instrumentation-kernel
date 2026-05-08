@@ -1,0 +1,28 @@
+{
+  "schema": "CIK-v0.1-test-rcc-context",
+  "declared_paths": [
+    "src/app.py",
+    "tests/test_app.py",
+    "docs/architecture/rcc_context_map.json"
+  ],
+  "evidence_paths": [
+    "tests/test_app.py"
+  ],
+  "commands": [
+    {
+      "name": "unit_tests",
+      "command": "python -m unittest discover -s tests",
+      "declared": true
+    }
+  ],
+  "claims": [
+    {
+      "claim": "tiny fixture has an app module",
+      "claim_type": "implementation",
+      "supported": true
+    }
+  ],
+  "staleness": {
+    "is_stale": false
+  }
+}

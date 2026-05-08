@@ -1,0 +1,9 @@
+{
+  "schema": "CIK-v0.1-instrument-manifest",
+  "name": "rcc-drift",
+  "version": "v0.1",
+  "residual": "DeltaPhi_repo",
+  "omega": "1/(1+abs(DeltaPhi_repo))",
+  "classification_expected": "CIF4/CIF-B",
+  "non_claim": "RCC drift is repository-context drift, not code correctness."
+}

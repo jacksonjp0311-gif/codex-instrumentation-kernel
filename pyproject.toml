@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-instrumentation-kernel"
+version = "0.1.0"
+description = "Minimal Codex CIF v2.1 runtime for repository-context drift instrumentation."
+requires-python = ">=3.10"
+authors = [
+  { name = "James Paul Jackson" }
+]
+license = { text = "MIT" }
+keywords = ["codex", "instrumentation", "repository-context", "drift", "cif", "rcc"]
+
+[project.scripts]
+cik = "cik.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"cik" = ["schemas/*.json", "instruments/rcc_drift/manifest.json"]

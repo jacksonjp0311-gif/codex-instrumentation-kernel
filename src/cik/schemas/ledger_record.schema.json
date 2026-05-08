@@ -1,0 +1,4 @@
+{
+  "type": "object",
+  "required": ["schema", "run_id", "timestamp", "instrument", "dphi_global", "omega_mean"]
+}

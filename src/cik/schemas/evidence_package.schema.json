@@ -1,0 +1,4 @@
+{
+  "type": "object",
+  "required": ["schema", "instrument", "run_id", "claim", "metrics", "artifacts", "classification"]
+}

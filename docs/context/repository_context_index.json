@@ -1,0 +1,113 @@
+{
+  "schema": "CIK-v0.1-RCC-context-index",
+  "repository": {
+    "name": "codex-instrumentation-kernel",
+    "root": ".",
+    "package": "codex-instrumentation-kernel",
+    "version": "0.1.0",
+    "cli": "cik",
+    "declared_profile": "RCC-Core",
+    "last_verified": "2026-05-08",
+    "verification_mode": "local_tests_and_smoke_run"
+  },
+  "framework_versions": {
+    "CIK": "v0.1",
+    "CIF": "v2.1",
+    "RCC": "v1.3",
+    "AIT_HYDRA": "v1.0"
+  },
+  "current_runtime": {
+    "primary_instrument": "rcc-drift",
+    "maturity": "CIF4",
+    "classification": "CIF-B",
+    "cif_score": 0.7142857142857143,
+    "rootmirror_enabled": false,
+    "tesseract_indexing_enabled": false,
+    "perturbation_sweep_enabled": false
+  },
+  "declared_paths": [
+    "README.md",
+    "pyproject.toml",
+    "docs/architecture/rcc_context_map.md",
+    "docs/context/repository_context_index.json",
+    "src/cik/cli.py",
+    "src/cik/core/loop.py",
+    "src/cik/core/metrics.py",
+    "src/cik/core/scoring.py",
+    "src/cik/core/maturity.py",
+    "src/cik/core/classification.py",
+    "src/cik/core/locks.py",
+    "src/cik/instruments/registry.py",
+    "src/cik/instruments/rcc_drift/instrument.py",
+    "src/cik/instruments/rcc_drift/drift_metrics.py",
+    "src/cik/artifacts/writers.py",
+    "src/cik/evidence/package.py",
+    "src/cik/injection/register.py",
+    "tests/test_cli_run.py",
+    "tests/test_cif_score.py",
+    "tests/test_maturity.py",
+    "tests/test_rcc_drift_metrics.py",
+    "tests/test_rcc_readmes.py"
+  ],
+  "evidence_paths": [
+    "outputs/state",
+    "outputs/ledger",
+    "outputs/evidence",
+    "outputs/reports",
+    "outputs/semantic",
+    "outputs/injection"
+  ],
+  "commands": [
+    {
+      "name": "unit_tests",
+      "command": "python -m unittest discover -s tests",
+      "declared": true
+    },
+    {
+      "name": "rcc_readme_tests",
+      "command": "python -m unittest tests.test_rcc_readmes -v",
+      "declared": true
+    },
+    {
+      "name": "fixture_smoke_run",
+      "command": "python -m cik run --instrument rcc-drift --repo .\\tests\\fixtures\\tiny_repo_with_context --out .\\outputs",
+      "declared": true
+    },
+    {
+      "name": "injection_register_validation",
+      "command": "python -m cik validate-injection-register --repo .",
+      "declared": true
+    }
+  ],
+  "claims": [
+    {
+      "claim": "CIK v0.1 runs a minimal instrumentation loop.",
+      "claim_type": "behavioral",
+      "supported": true,
+      "evidence": "tests and fixture smoke run"
+    },
+    {
+      "claim": "CIK v0.1 emits state, ledger, evidence, report, and semantic artifacts.",
+      "claim_type": "behavioral",
+      "supported": true,
+      "evidence": "outputs directories and smoke run"
+    },
+    {
+      "claim": "CIK v0.1 proves code correctness.",
+      "claim_type": "correctness",
+      "supported": false,
+      "evidence": "non-claim lock"
+    }
+  ],
+  "staleness": {
+    "is_stale": false,
+    "max_age_days": 180,
+    "downgrade_on_expiry": "stale_context"
+  },
+  "non_claim_locks": {
+    "context_reconstruction_is_not_correctness_proof": true,
+    "rcc_drift_is_not_code_correctness": true,
+    "cifscore_is_not_truth": true,
+    "coherence_is_not_truth": true
+  }
+}

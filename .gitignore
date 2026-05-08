@@ -1,0 +1,28 @@
+﻿# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local repair artifacts
+artifacts/backups/
+artifacts/repo_dumps/
+
+# Runtime outputs can be regenerated
+outputs/
+
+# Logs
+*.log
