@@ -1,7 +1,7 @@
 # Codex Instrumentation Kernel
 
-**Current version:** CIK v0.8 — Evidence Graph and Cross-Run Query Layer  
-**Status:** Runnable local-first Codex instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, v0.7 multi-instrument orchestration with composed evidence artifacts, and v0.8 evidence graph / cross-run query navigation.  
+**Current version:** CIK v0.9 — Full Tesseract and Dashboard-Ready Package  
+**Status:** Runnable local-first Codex instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, v0.7 multi-instrument orchestration with composed evidence artifacts, v0.8 evidence graph / cross-run query navigation, and v0.9 full Tesseract / dashboard-ready release-preparation packaging.  
 **Author:** James Paul Jackson / @unifiedenergy11
 
 ---
@@ -12,45 +12,53 @@
 
 Codex Instrumentation Kernel, or **CIK**, is a compact software kernel for turning the Codex ΔΦ framework into executable instrumentation.
 
-CIK does not claim intelligence, consciousness, truth, security, formal verification, supply-chain provenance, autonomous memory, or code correctness. It measures repository-context drift, emits evidence artifacts, validates controlled perturbation behavior, indexes outputs into a hash-linked artifact surface, verifies local run envelopes, consumes verification evidence conservatively, reconciles downgrade reasons, validates instrument contracts, orchestrates registry-valid instruments through an explicit run plan, and now builds a bounded evidence graph over emitted artifacts.
+CIK does not claim intelligence, consciousness, truth, security, formal verification, supply-chain provenance, autonomous memory, external validation, or code correctness. It measures repository-context drift, emits evidence artifacts, validates controlled perturbation behavior, indexes outputs into a hash-linked artifact surface, verifies local run envelopes, consumes verification evidence conservatively, reconciles downgrade reasons, validates instrument contracts, orchestrates registry-valid instruments through an explicit run plan, builds a bounded evidence graph over emitted artifacts, and now packages that graph into a dashboard-ready full Tesseract inspection surface.
 
-CIK v0.8 adds the **Evidence Graph and Cross-Run Query Layer**:
+CIK v0.9 adds the **Full Tesseract and Dashboard-Ready Package**:
 
-- Scans output artifacts read-only.
-- Supports JSON object and JSON array payload shapes.
-- Emits `evidence_graph.json`.
-- Emits `evidence_graph_report.md`.
-- Emits `evidence_graph_evidence_package.json`.
-- Builds run, instrument, artifact, evidence, downgrade, and claim nodes.
-- Builds artifact-backed graph edges.
-- Marks missing, inferred, ambiguous, and orphan relations.
-- Adds cross-run query navigation.
-- Adds artifact lineage query.
-- Adds downgrade history query.
-- Adds claim/evidence lookup.
+- Compiles the v0.8 evidence graph into a full Tesseract package.
+- Emits `tesseract_full_package.json`.
+- Emits `tesseract_full_report.md`.
+- Emits `dashboard_data.json`.
+- Emits `dashboard_report.md`.
+- Emits `release_readiness_summary.md`.
+- Emits `tesseract_full_evidence_package.json`.
+- Adds run-family dashboard views.
+- Adds instrument-health dashboard views.
+- Adds evidence-maturity dashboard views.
+- Adds downgrade-timeline dashboard views.
+- Adds claim-boundary dashboard views.
+- Adds RootMirror linkage views.
+- Adds orchestration linkage views.
+- Adds a v1.0 stabilization gate.
+- Preserves v0.8 evidence graph compatibility.
 - Preserves v0.7 orchestration compatibility.
 - Preserves v0.6 integrated compatibility.
-- Preserves README/RCC anchor contracts.
+- Preserves README/RCC case-sensitive anchor contracts.
 - Preserves non-claim locks.
 
-The latest validated v0.8 repair semantics are:
+The latest validated v0.9 semantics are:
 
-- JSON object artifacts → scanned as single mapping payloads.
-- JSON array artifacts → scanned through dictionary items inside the list.
-- Unsupported or unreadable JSON → treated as non-JSON payload without crashing.
-- Graph linkage → navigation only, not truth.
-- Artifact lineage → reconstruction aid, not provenance.
+- Evidence graph → read-only input to the full Tesseract package.
+- Tesseract package → bounded artifact lattice, not provenance.
+- Dashboard views → visual navigation, not validation.
+- Release-readiness summary → v1.0 preparation aid, not release proof.
+- Missing, inferred, ambiguous, and orphan graph relations → disclosed, not hidden.
+- Visualization → inspection surface only, not truth.
 
 The current local verification surface has passed:
 
-- v0.8 focused evidence graph tests
-- v0.7 focused orchestration tests
-- v0.6 compatibility tests
-- README/RCC tests
-- Full unit suite
-- v0.8 evidence graph smoke
-- v0.7 orchestration smoke
-- v0.6 integrated compatibility smoke
+- v0.9 focused Tesseract/dashboard tests.
+- v0.8 evidence graph tests.
+- v0.7 orchestration tests.
+- v0.6 compatibility tests.
+- README/RCC tests.
+- Full unit suite: 97 tests OK.
+- v0.9 full Tesseract/dashboard smoke.
+- v0.8 evidence graph smoke.
+- v0.7 orchestration smoke.
+- v0.6 integrated compatibility smoke.
+- Final Git status clean.
 
 ## What This Is
 
@@ -68,9 +76,13 @@ The current local verification surface has passed:
 - A contract-aware instrument registry.
 - A multi-instrument orchestration substrate.
 - A cross-instrument evidence composition system.
-- A local-first evidence compiler for Codex instrumentation runs.
 - A bounded evidence graph and cross-run query layer.
-- A testable Python package with state, ledger, evidence, report, semantic, RootMirror, Tesseract, orchestration, and evidence graph artifacts.
+- A full Tesseract package layer.
+- A static dashboard-ready inspection layer.
+- A release-readiness summary layer.
+- A v1.0 stabilization gate precursor.
+- A local-first evidence compiler for Codex instrumentation runs.
+- A testable Python package with state, ledger, evidence, report, semantic, RootMirror, Tesseract-lite, orchestration, evidence graph, full Tesseract, and dashboard artifacts.
 
 ## What This Is Not
 
@@ -83,9 +95,8 @@ The current local verification surface has passed:
 - Not a security audit.
 - Not supply-chain provenance.
 - Not formal verification.
-- Not full Codex Tesseract.
+- Not full external validation.
 - Not autonomous memory.
-- Not external validation.
 - Not permission to treat coherence as truth.
 - Not permission to treat artifact hashes as semantic validity.
 - Not permission to treat RootMirror Full as a security proof.
@@ -98,6 +109,10 @@ The current local verification surface has passed:
 - Not permission to treat queryability as correctness.
 - Not permission to treat artifact lineage as provenance.
 - Not permission to treat evidence graph output as autonomous memory.
+- Not permission to treat dashboard visualization as validation.
+- Not permission to treat Tesseract linkage as provenance.
+- Not permission to treat dashboard completeness as evidence completeness.
+- Not permission to treat release-readiness as release proof.
 
 ## Version Lineage
 
@@ -113,10 +128,9 @@ The current local verification surface has passed:
 | v0.5 | Full RootMirror Verification Layer | Complete |
 | v0.6 | Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer | Complete |
 | v0.7 | Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer | Complete |
-| v0.8 | Evidence Graph and Cross-Run Query Layer | Current |
-| v0.9 | Full Tesseract and Dashboard-Ready Package | Next |
-| v0.9 | Full Tesseract and Dashboard-Ready Package | Planned |
-| v1.0 | Stable Local-First CIK Release | Target |
+| v0.8 | Evidence Graph and Cross-Run Query Layer | Complete |
+| v0.9 | Full Tesseract and Dashboard-Ready Package | Current |
+| v1.0 | Stable Local-First CIK Release | Next |
 
 ---
 
@@ -133,22 +147,30 @@ Use this README as the first reconstruction surface, then inspect:
 3. `docs/protocols/rootmirror_full_contract.md`
 4. `docs/protocols/instrument_plugin_contract.md`
 5. `docs/protocols/orchestration_contract.md`
-6. `configs/instruments/instrument_registry.json`
-7. `configs/orchestration/default_run_plan.json`
-8. `src/cik/`
-9. `src/cik/rootmirror_full/`
-10. `src/cik/core/`
-11. `src/cik/instruments/`
-12. `src/cik/orchestration/`
-13. `tests/`
-14. `outputs/state/`
-15. `outputs/ledger/`
-16. `outputs/evidence/`
-17. `outputs/rootmirror/`
-18. `outputs/rootmirror_full/`
-19. `outputs/perturbation/`
-20. `outputs/tesseract/`
-21. `outputs/orchestration/`
+6. `docs/protocols/evidence_graph_contract.md`
+7. `docs/protocols/tesseract_full_contract.md`
+8. `docs/protocols/dashboard_contract.md`
+9. `configs/instruments/instrument_registry.json`
+10. `configs/orchestration/default_run_plan.json`
+11. `src/cik/`
+12. `src/cik/rootmirror_full/`
+13. `src/cik/core/`
+14. `src/cik/instruments/`
+15. `src/cik/orchestration/`
+16. `src/cik/evidence_graph/`
+17. `src/cik/tesseract_full/`
+18. `tests/`
+19. `outputs/state/`
+20. `outputs/ledger/`
+21. `outputs/evidence/`
+22. `outputs/rootmirror/`
+23. `outputs/rootmirror_full/`
+24. `outputs/perturbation/`
+25. `outputs/tesseract/`
+26. `outputs/orchestration/`
+27. `outputs/evidence_graph/`
+28. `outputs/tesseract_full/`
+29. `outputs/dashboard/`
 
 Do not infer claims beyond emitted artifacts, source files, tests, and declared non-claim locks.
 
@@ -160,7 +182,7 @@ When using an AI assistant on this repo:
 2. Read the repository context index.
 3. Read the RCC context map.
 4. Inspect affected modules before patching.
-5. Preserve v0.1-v0.8 behavior.
+5. Preserve v0.1-v0.9 behavior.
 6. Run tests before claiming success.
 7. Keep non-claim locks intact.
 8. Update README and mini READMEs when architecture changes.
@@ -171,7 +193,11 @@ When using an AI assistant on this repo:
 13. Do not treat orchestration as correctness.
 14. Do not treat composed evidence as truth.
 15. Do not hide failed, skipped, blocked, or warning instruments.
-16. Do not advance toward v0.9 until v0.8 remains clean from HEAD.
+16. Do not treat evidence graph linkage as truth.
+17. Do not treat dashboard visualization as validation.
+18. Do not treat Tesseract linkage as provenance.
+19. Do not treat release-readiness as release proof.
+20. Do not advance toward v1.0 until v0.9 remains clean from HEAD.
 
 ## RCC documentation contract
 
@@ -192,7 +218,10 @@ Required RCC surfaces:
 11. RootMirror Full protocol contract.
 12. Instrument plugin contract.
 13. Orchestration contract.
-14. Current local verification surface.
+14. Evidence graph contract.
+15. Full Tesseract contract.
+16. Dashboard contract.
+17. Current local verification surface.
 
 RCC documentation improves orientation and maintenance discipline. It does not prove code correctness, runtime correctness, security, truth, or artifact meaning.
 
@@ -200,7 +229,7 @@ RCC documentation improves orientation and maintenance discipline. It does not p
 
 AI assistants working on this repository must preserve the following boundary:
 
-CIK helps reconstruct, inspect, patch, test, and document repository instrumentation context. It does not prove code correctness, runtime correctness, semantic truth, security, intelligence, consciousness, autonomous memory, external validity, or artifact meaning.
+CIK helps reconstruct, inspect, patch, test, and document repository instrumentation context. It does not prove code correctness, runtime correctness, semantic truth, security, intelligence, consciousness, autonomous memory, external validity, provenance, or artifact meaning.
 
 AI assistants must not:
 
@@ -215,9 +244,15 @@ AI assistants must not:
 9. Treat orchestration as correctness.
 10. Treat composed evidence as truth.
 11. Treat multi-instrument agreement as external validation.
-12. Promote maturity classification without emitted evidence.
-13. Remove downgrade reasons without a passing validation surface.
-14. Collapse human-facing explanation into AI-only reconstruction.
+12. Treat evidence graph linkage as truth.
+13. Treat queryability as correctness.
+14. Treat artifact lineage as provenance.
+15. Treat dashboard visualization as validation.
+16. Treat Tesseract linkage as provenance.
+17. Treat release-readiness as release proof.
+18. Promote maturity classification without emitted evidence.
+19. Remove downgrade reasons without a passing validation surface.
+20. Collapse human-facing explanation into AI-only reconstruction.
 
 ## Reconstruction Order
 
@@ -229,16 +264,22 @@ Recommended reconstruction order:
 4. RootMirror Full protocol contract.
 5. Instrument plugin contract.
 6. Orchestration contract.
-7. Mini READMEs.
-8. Source modules.
-9. Tests.
-10. Latest state artifacts.
-11. Ledger.
-12. Evidence packages.
-13. Tesseract-lite index.
-14. RootMirror Full verification output.
-15. Orchestration state and evidence output.
-16. Evidence graph output.
+7. Evidence graph contract.
+8. Full Tesseract contract.
+9. Dashboard contract.
+10. Mini READMEs.
+11. Source modules.
+12. Tests.
+13. Latest state artifacts.
+14. Ledger.
+15. Evidence packages.
+16. Tesseract-lite index.
+17. RootMirror Full verification output.
+18. Orchestration state and evidence output.
+19. Evidence graph output.
+20. Full Tesseract package output.
+21. Dashboard output.
+22. Release-readiness summary.
 
 ## Non-Claim Locks for AI Use
 
@@ -266,14 +307,18 @@ Recommended reconstruction order:
 - Queryability is not correctness.
 - Artifact lineage is not provenance.
 - Evidence graph is not autonomous memory.
+- Visualization is not validation.
+- Tesseract linkage is not provenance.
+- Dashboard completeness is not evidence completeness.
+- Release-readiness is not release proof.
 
 ---
 
 # PART III — EXECUTION AND ARTIFACT SURFACE
 
-## Current v0.8 Capability
+## Current v0.9 Capability
 
-CIK v0.8 can:
+CIK v0.9 can:
 
 1. Run the RCC drift instrument.
 2. Compute repository-context ΔΦ.
@@ -337,6 +382,21 @@ CIK v0.8 can:
 60. Query claim/evidence declarations.
 61. Query artifact lineage.
 62. Preserve graph non-claim locks.
+63. Build full Tesseract package JSON.
+64. Build full Tesseract Markdown report.
+65. Build dashboard JSON.
+66. Build dashboard Markdown report.
+67. Build release-readiness summary.
+68. Build run-family dashboard view.
+69. Build instrument-health dashboard view.
+70. Build evidence-maturity dashboard view.
+71. Build downgrade-timeline dashboard view.
+72. Build claim-boundary dashboard view.
+73. Build RootMirror linkage view.
+74. Build orchestration linkage view.
+75. Emit full Tesseract evidence package.
+76. Preserve dashboard non-claim locks.
+77. Preserve v1.0 stabilization gate readiness fields.
 
 ## Core Commands
 
@@ -390,7 +450,6 @@ Run v0.7 orchestration directly:
     $env:PYTHONPATH = ".\src"
     python -m cik.orchestration --repo-root "." --out ".\outputs" --plan ".\configs\orchestration\default_run_plan.json"
 
-
 Run v0.8 evidence graph smoke:
 
     cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
@@ -410,6 +469,29 @@ Query v0.8 evidence graph:
     python -m cik.evidence_graph query --out ".\outputs" --kind downgrades
     python -m cik.evidence_graph query --out ".\outputs" --kind claim-evidence --claim "orchestration_is_not_correctness"
 
+Run v0.9 full Tesseract/dashboard smoke:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v09_tesseract_dashboard.ps1"
+
+Build v0.9 full Tesseract package directly:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    $env:PYTHONPATH = ".\src"
+    python -m cik.tesseract_full build --out ".\outputs"
+
+Build v0.9 dashboard directly:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    $env:PYTHONPATH = ".\src"
+    python -m cik.tesseract_full dashboard --out ".\outputs"
+
+Build v0.9 release-readiness summary directly:
+
+    cd "C:\Users\jacks\OneDrive\Desktop\codex-instrumentation-kernel"
+    $env:PYTHONPATH = ".\src"
+    python -m cik.tesseract_full readiness --out ".\outputs"
+
 ## Main Output Folders
 
 | Folder | Purpose |
@@ -425,6 +507,8 @@ Query v0.8 evidence graph:
 | outputs/tesseract/ | Tesseract-lite artifact index |
 | outputs/orchestration/ | v0.7 run plans, orchestration states, composed evidence bundles, per-instrument records, and orchestration reports |
 | outputs/evidence_graph/ | v0.8 evidence graph JSON and Markdown report |
+| outputs/tesseract_full/ | v0.9 full Tesseract package and report |
+| outputs/dashboard/ | v0.9 dashboard JSON, Markdown report, and release-readiness summary |
 
 ## Tesseract-lite Outputs
 
@@ -492,7 +576,6 @@ The orchestration layer records:
 - Orchestration evidence package.
 - Non-claim locks.
 
-
 ## Evidence Graph Outputs
 
 CIK v0.8 emits:
@@ -516,6 +599,31 @@ The evidence graph layer records:
 - Downgrade history surfaces.
 - Claim/evidence lookup surfaces.
 - Non-claim locks.
+
+## Full Tesseract and Dashboard Outputs
+
+CIK v0.9 emits:
+
+    outputs/tesseract_full/tesseract_full_package.json
+    outputs/tesseract_full/tesseract_full_report.md
+    outputs/dashboard/dashboard_data.json
+    outputs/dashboard/dashboard_report.md
+    outputs/dashboard/release_readiness_summary.md
+    outputs/evidence/tesseract_full_evidence_package.json
+
+The full Tesseract and dashboard layer records:
+
+- Run-family views.
+- Instrument health views.
+- Evidence maturity views.
+- Downgrade timeline views.
+- Claim-boundary views.
+- RootMirror linkage views.
+- Orchestration linkage views.
+- Evidence graph validation status.
+- Release-readiness status.
+- v1.0 stabilization gate.
+- Dashboard non-claim locks.
 
 ## Instrumentation Loop
 
@@ -546,20 +654,24 @@ The evidence graph layer records:
     -> evidence graph build
     -> cross-run query surface
     -> artifact lineage / downgrade history / claim-evidence lookup
+    -> full Tesseract package
+    -> dashboard JSON / Markdown
+    -> release-readiness summary
+    -> v1.0 stabilization gate
 
 ## Current Downgrade Surface
 
-v0.8 closes the prior graph/query gap:
-
-    Artifacts are emitted and indexed, but they are not yet promoted into a first-class evidence graph with cross-run queries, artifact lineage queries, downgrade history, run-family grouping, and claim/evidence lookup.
-
-The current remaining next-stage gap is full Tesseract/dashboard readiness:
+v0.9 closes the prior dashboard-readiness gap:
 
     Evidence graph outputs are emitted and queryable, but they are not yet promoted into a full Tesseract artifact lattice with dashboard-ready summaries, visualization surfaces, maturity views, and public release packaging.
 
+The current remaining next-stage gap is stable release hardening:
+
+    CIK is locally runnable and dashboard-ready, but it still needs v1.0 release stabilization: stable CLI promises, final README/RCC enforcement, release notes, packaging hygiene, clean install instructions, optional GitHub release readiness, and a final non-claim-preserving public engineering surface.
+
 This is why the next version is:
 
-    CIK v0.9 — Full Tesseract and Dashboard-Ready Package
+    CIK v1.0 — Stable Local-First Release
 
 ## Required local verification
 
@@ -586,15 +698,22 @@ Before treating the repository as locally aligned, run:
     python -m unittest tests.test_v08_downgrade_history -v
     python -m unittest tests.test_v08_claim_evidence_lookup -v
     python -m unittest tests.test_v08_graph_validation -v
+    python -m unittest tests.test_v09_tesseract_package -v
+    python -m unittest tests.test_v09_dashboard_views -v
+    python -m unittest tests.test_v09_release_readiness -v
+    python -m unittest tests.test_v09_dashboard_non_claim_locks -v
+    python -m unittest tests.test_v09_tesseract_validation -v
 
 For full local verification, run:
 
     $env:PYTHONPATH = ".\src"
     python -m unittest discover -s tests
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v09_tesseract_dashboard.ps1"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v08_evidence_graph.ps1"
     powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v07_orchestration.ps1"
     powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v06_integrated.ps1"
 
-This verification surface does not prove code correctness, semantic truth, security, intelligence, consciousness, autonomous memory, external validity, or artifact meaning. It only confirms that the declared local README/RCC, Tesseract-lite, RootMirror Full, v0.6 integration, v0.7 orchestration, and v0.8 evidence graph contract checks pass.
+This verification surface does not prove code correctness, semantic truth, security, intelligence, consciousness, autonomous memory, external validity, provenance, or artifact meaning. It only confirms that the declared local README/RCC, Tesseract-lite, RootMirror Full, v0.6 integration, v0.7 orchestration, v0.8 evidence graph, and v0.9 dashboard/Tesseract contract checks pass.
 
 ## Minimal Verification Checklist
 
@@ -614,7 +733,13 @@ Before locking a version:
     [ ] Evidence graph report emits
     [ ] Evidence graph evidence package emits
     [ ] Evidence graph query smoke passes
-        [ ] Optional degradation is preserved as warning
+    [ ] Full Tesseract package emits
+    [ ] Full Tesseract report emits
+    [ ] Dashboard JSON emits
+    [ ] Dashboard Markdown emits
+    [ ] Release-readiness summary emits
+    [ ] v0.9 dashboard smoke passes
+    [ ] Optional degradation is preserved as warning
     [ ] Required failure is preserved as failure
     [ ] Non-claim locks preserved
     [ ] README updated
@@ -626,9 +751,9 @@ Before locking a version:
 
 Proceed to:
 
-    CIK v0.8 — Evidence Graph and Cross-Run Query Layer
+    CIK v1.0 — Stable Local-First Release
 
-CIK v0.8 is the current committed local evolution target. CIK v0.9 is the next target: Full Tesseract and Dashboard-Ready Package.
+CIK v0.9 is the current committed local layer. CIK v1.0 is the next target.
 
 <!-- CIK-V06-BEGIN -->
 ## CIK v0.6 — Core Scoring and Instrument Registry Integration Layer
@@ -684,11 +809,6 @@ CIK v0.7 turns the contract-aware v0.6 kernel into a governed orchestration runt
     python -m unittest tests.test_v07_evidence_composition -v
     python -m unittest tests.test_v07_partial_failure_preservation -v
     python -m unittest tests.test_v07_orchestration_executor -v
-    python -m unittest tests.test_v08_graph_builder -v
-    python -m unittest tests.test_v08_graph_queries -v
-    python -m unittest tests.test_v08_downgrade_history -v
-    python -m unittest tests.test_v08_claim_evidence_lookup -v
-    python -m unittest tests.test_v08_graph_validation -v
     python -m cik.orchestration --repo-root "." --out ".\outputs" --plan ".\configs\orchestration\default_run_plan.json"
     powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v07_orchestration.ps1"
 
@@ -705,61 +825,6 @@ CIK v0.7 turns the contract-aware v0.6 kernel into a governed orchestration runt
 
 Orchestration is not correctness. Composition is not truth. Multi-instrument agreement is not external validation. Registry validity is not instrument validity. Evidence composition is not a security proof.
 <!-- CIK-V07-END -->
-
-<!-- CIK-ROADMAP-BEGIN -->
-## Roadmap to CIK v1.0
-
-### v0.8 — Evidence Graph and Query Layer
-
-Goal: transform state, ledger, RootMirror, Tesseract-lite, perturbation, registry, and orchestration outputs into a queryable evidence graph.
-
-Adds:
-
-- evidence graph JSON
-- cross-run search
-- artifact lineage queries
-- run-family grouping
-- downgrade history query
-- claim/evidence lookup
-- graph validation tests
-- graph query smoke script
-
-### v0.9 — Full Tesseract and Dashboard-Ready Package
-
-Goal: evolve Tesseract-lite into a fuller bounded artifact lattice with dashboard-ready summaries.
-
-Adds:
-
-- full Tesseract index contract
-- dashboard JSON
-- artifact lineage visualization surface
-- evidence maturity views
-- RCC/CIF/AIT summary surfaces
-
-### v1.0 — Stable Local-First CIK Release
-
-Goal: lock CIK as a stable local-first Codex instrumentation kernel.
-
-v1.0 must include:
-
-- stable CLI
-- stable instrument plugin contract
-- stable evidence package schema
-- stable RootMirror Full verification
-- stable orchestration contract
-- stable Tesseract artifact index
-- stable evidence graph/query surface
-- stable README/RCC reconstruction surface
-- full local validation command
-- clean local Git state
-- optional GitHub release readiness
-
-### End-goal lock
-
-CIK v1.0 is a local-first evidence compiler for Codex instrumentation runs.
-
-It does not prove truth, correctness, security, intelligence, consciousness, autonomous memory, external validity, or artifact meaning.
-<!-- CIK-ROADMAP-END -->
 
 <!-- CIK-V08-BEGIN -->
 ## CIK v0.8 — Evidence Graph and Cross-Run Query Layer
@@ -809,3 +874,119 @@ CIK v0.8 turns emitted artifacts into a bounded local evidence graph.
 
 Graph linkage is not truth. Queryability is not correctness. Artifact lineage is not provenance. Graph completeness is not evidence completeness. Evidence graph is not autonomous memory.
 <!-- CIK-V08-END -->
+
+<!-- CIK-V09-BEGIN -->
+## CIK v0.9 — Full Tesseract and Dashboard-Ready Package
+
+CIK v0.9 compiles the v0.8 evidence graph into a dashboard-ready full Tesseract package.
+
+### v0.9 adds
+
+- Full Tesseract package JSON.
+- Full Tesseract Markdown report.
+- Dashboard JSON.
+- Dashboard Markdown.
+- Release-readiness summary.
+- Run-family dashboard view.
+- Instrument health dashboard view.
+- Evidence maturity dashboard view.
+- Downgrade timeline dashboard view.
+- Claim-boundary dashboard view.
+- RootMirror linkage view.
+- Orchestration linkage view.
+- v1.0 stabilization gate.
+- Static local-first dashboard packaging.
+- Dashboard non-claim locks.
+
+### v0.9 commands
+
+    python -m unittest tests.test_v09_tesseract_package -v
+    python -m unittest tests.test_v09_dashboard_views -v
+    python -m unittest tests.test_v09_release_readiness -v
+    python -m unittest tests.test_v09_dashboard_non_claim_locks -v
+    python -m unittest tests.test_v09_tesseract_validation -v
+    python -m cik.tesseract_full build --out ".\outputs"
+    python -m cik.tesseract_full dashboard --out ".\outputs"
+    python -m cik.tesseract_full readiness --out ".\outputs"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v09_tesseract_dashboard.ps1"
+
+### v0.9 output surface
+
+- `outputs/tesseract_full/tesseract_full_package.json`
+- `outputs/tesseract_full/tesseract_full_report.md`
+- `outputs/dashboard/dashboard_data.json`
+- `outputs/dashboard/dashboard_report.md`
+- `outputs/dashboard/release_readiness_summary.md`
+- `outputs/evidence/tesseract_full_evidence_package.json`
+
+### v0.9 non-claim lock
+
+Visualization is not validation. Tesseract linkage is not provenance. Dashboard completeness is not evidence completeness. Release-readiness is not release proof.
+<!-- CIK-V09-END -->
+
+<!-- CIK-ROADMAP-BEGIN -->
+## Roadmap to CIK v1.0
+
+### v0.8 — Evidence Graph and Query Layer
+
+Status: Complete.
+
+Goal: transform state, ledger, RootMirror, Tesseract-lite, perturbation, registry, and orchestration outputs into a queryable evidence graph.
+
+Adds:
+
+- evidence graph JSON
+- cross-run search
+- artifact lineage queries
+- run-family grouping
+- downgrade history query
+- claim/evidence lookup
+- graph validation tests
+- graph query smoke script
+
+### v0.9 — Full Tesseract and Dashboard-Ready Package
+
+Status: Current.
+
+Goal: evolve the evidence graph into a fuller bounded artifact lattice with dashboard-ready summaries.
+
+Adds:
+
+- full Tesseract package contract
+- dashboard JSON
+- dashboard Markdown
+- release-readiness summary
+- artifact lineage visualization surface
+- evidence maturity views
+- downgrade timeline views
+- claim-boundary views
+- RCC/CIF/AIT summary surfaces
+
+### v1.0 — Stable Local-First CIK Release
+
+Status: Next.
+
+Goal: lock CIK as a stable local-first Codex instrumentation kernel.
+
+v1.0 must include:
+
+- stable CLI
+- stable instrument plugin contract
+- stable evidence package schema
+- stable RootMirror Full verification
+- stable orchestration contract
+- stable Tesseract artifact index
+- stable evidence graph/query surface
+- stable full Tesseract/dashboard surface
+- stable README/RCC reconstruction surface
+- full local validation command
+- clean local Git state
+- release notes
+- optional GitHub release readiness
+
+### End-goal lock
+
+CIK v1.0 is a local-first evidence compiler for Codex instrumentation runs.
+
+It does not prove truth, correctness, security, intelligence, consciousness, autonomous memory, external validity, provenance, or artifact meaning.
+<!-- CIK-ROADMAP-END -->
