@@ -148,3 +148,42 @@ CIK v0.7 adds governed orchestration over registry-valid instruments.
 
 Orchestration is not correctness. Composition is not truth. Multi-instrument agreement is not external validation. Registry validity is not instrument validity.
 <!-- CIK-V07-END -->
+
+<!-- CIK-V08-BEGIN -->
+## CIK v0.8 — Evidence Graph and Cross-Run Query Layer
+
+CIK v0.8 adds a read-only evidence graph and cross-run query layer over emitted CIK artifacts.
+
+### New evidence graph modules
+
+- `src/cik/evidence_graph/nodes.py`
+- `src/cik/evidence_graph/edges.py`
+- `src/cik/evidence_graph/builder.py`
+- `src/cik/evidence_graph/queries.py`
+- `src/cik/evidence_graph/validator.py`
+- `src/cik/evidence_graph/writer.py`
+- `src/cik/evidence_graph/__main__.py`
+
+### New protocol
+
+- `docs/protocols/evidence_graph_contract.md`
+
+### New outputs
+
+- `outputs/evidence_graph/evidence_graph.json`
+- `outputs/evidence_graph/evidence_graph_report.md`
+- `outputs/evidence/evidence_graph_evidence_package.json`
+
+### New validation
+
+- `tests/test_v08_graph_builder.py`
+- `tests/test_v08_graph_queries.py`
+- `tests/test_v08_downgrade_history.py`
+- `tests/test_v08_claim_evidence_lookup.py`
+- `tests/test_v08_graph_validation.py`
+- `scripts/run_cik_v08_evidence_graph.ps1`
+
+### Non-claim boundary
+
+Graph linkage is not truth. Queryability is not correctness. Artifact lineage is not provenance. Graph completeness is not evidence completeness. Evidence graph is not autonomous memory.
+<!-- CIK-V08-END -->

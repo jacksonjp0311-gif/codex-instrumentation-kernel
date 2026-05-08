@@ -1,6 +1,6 @@
 # Codex Instrumentation Kernel
 
-**Current version:** CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer  
+**Current version:** CIK v0.8 — Evidence Graph and Cross-Run Query Layer  
 **Status:** Runnable local-first Codex instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, and v0.7 multi-instrument orchestration with composed evidence artifacts.  
 **Author:** James Paul Jackson / @unifiedenergy11
 
@@ -103,8 +103,9 @@ The current local verification surface has passed:
 | v0.4 | Tesseract-lite Artifact Indexing Layer | Complete |
 | v0.5 | Full RootMirror Verification Layer | Complete |
 | v0.6 | Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer | Complete |
-| v0.7 | Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer | Current |
-| v0.8 | Evidence Graph and Cross-Run Query Layer | Next |
+| v0.7 | Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer | Complete |
+| v0.8 | Evidence Graph and Cross-Run Query Layer | Current |
+| v0.9 | Full Tesseract and Dashboard-Ready Package | Next |
 | v0.9 | Full Tesseract and Dashboard-Ready Package | Planned |
 | v1.0 | Stable Local-First CIK Release | Target |
 
@@ -535,7 +536,7 @@ Proceed to:
 
     CIK v0.8 — Evidence Graph and Cross-Run Query Layer
 
-CIK v0.7 is the current committed local layer. CIK v0.8 is the next target.
+CIK v0.8 is the current committed local evolution target. CIK v0.9 is the next target: Full Tesseract and Dashboard-Ready Package.
 
 <!-- CIK-V06-BEGIN -->
 ## CIK v0.6 — Core Scoring and Instrument Registry Integration Layer
@@ -662,3 +663,51 @@ CIK v1.0 is a local-first evidence compiler for Codex instrumentation runs.
 
 It does not prove truth, correctness, security, intelligence, consciousness, autonomous memory, external validity, or artifact meaning.
 <!-- CIK-ROADMAP-END -->
+
+<!-- CIK-V08-BEGIN -->
+## CIK v0.8 — Evidence Graph and Cross-Run Query Layer
+
+CIK v0.8 turns emitted artifacts into a bounded local evidence graph.
+
+### v0.8 adds
+
+- Read-only output artifact scan.
+- Evidence graph JSON.
+- Evidence graph Markdown report.
+- Evidence graph evidence package.
+- Run nodes.
+- Instrument nodes.
+- Artifact nodes.
+- Evidence nodes.
+- Downgrade nodes.
+- Claim nodes.
+- Artifact-backed edges.
+- Missing/inferred/ambiguous/orphan validation surfaces.
+- Cross-run query surface.
+- Artifact lineage query.
+- Downgrade history query.
+- Claim/evidence lookup query.
+
+### v0.8 commands
+
+    python -m unittest tests.test_v08_graph_builder -v
+    python -m unittest tests.test_v08_graph_queries -v
+    python -m unittest tests.test_v08_downgrade_history -v
+    python -m unittest tests.test_v08_claim_evidence_lookup -v
+    python -m unittest tests.test_v08_graph_validation -v
+    python -m cik.evidence_graph build --out ".\outputs"
+    python -m cik.evidence_graph query --out ".\outputs" --kind runs
+    python -m cik.evidence_graph query --out ".\outputs" --kind downgrades
+    python -m cik.evidence_graph query --out ".\outputs" --kind claim-evidence --claim "orchestration_is_not_correctness"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v08_evidence_graph.ps1"
+
+### v0.8 output surface
+
+- `outputs/evidence_graph/evidence_graph.json`
+- `outputs/evidence_graph/evidence_graph_report.md`
+- `outputs/evidence/evidence_graph_evidence_package.json`
+
+### v0.8 non-claim lock
+
+Graph linkage is not truth. Queryability is not correctness. Artifact lineage is not provenance. Graph completeness is not evidence completeness. Evidence graph is not autonomous memory.
+<!-- CIK-V08-END -->
