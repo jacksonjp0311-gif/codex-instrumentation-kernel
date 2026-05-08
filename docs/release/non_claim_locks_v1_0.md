@@ -1,0 +1,21 @@
+# CIK v1.0 Non-Claim Locks
+
+- Codex is not intelligence.
+- Codex is not consciousness.
+- Coherence is not truth.
+- CIFScore is not truth.
+- RCC drift is not code correctness.
+- RootMirror Full is not code correctness.
+- Orchestration is not correctness.
+- Composition is not truth.
+- Graph linkage is not truth.
+- Queryability is not correctness.
+- Artifact lineage is not provenance.
+- Visualization is not validation.
+- Tesseract linkage is not provenance.
+- Release-readiness is not release proof.
+- Stable release is not truth.
+- Local validation is not formal verification.
+- Release bundle is not provenance.
+- Git cleanliness is not semantic validity.
+- Release notes are not external validation.

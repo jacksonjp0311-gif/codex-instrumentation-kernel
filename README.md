@@ -1,6 +1,6 @@
 # Codex Instrumentation Kernel
 
-**Current version:** CIK v0.9 — Full Tesseract and Dashboard-Ready Package  
+**Current version:** CIK v1.0 — Stable Local-First Release  
 **Status:** Runnable local-first Codex instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, v0.7 multi-instrument orchestration with composed evidence artifacts, v0.8 evidence graph / cross-run query navigation, and v0.9 full Tesseract / dashboard-ready release-preparation packaging.  
 **Author:** James Paul Jackson / @unifiedenergy11
 
@@ -129,8 +129,8 @@ The current local verification surface has passed:
 | v0.6 | Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer | Complete |
 | v0.7 | Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer | Complete |
 | v0.8 | Evidence Graph and Cross-Run Query Layer | Complete |
-| v0.9 | Full Tesseract and Dashboard-Ready Package | Current |
-| v1.0 | Stable Local-First CIK Release | Next |
+| v0.9 | Full Tesseract and Dashboard-Ready Package | Complete |
+| v1.0 | Stable Local-First CIK Release | Current |
 
 ---
 
@@ -509,6 +509,7 @@ Build v0.9 release-readiness summary directly:
 | outputs/evidence_graph/ | v0.8 evidence graph JSON and Markdown report |
 | outputs/tesseract_full/ | v0.9 full Tesseract package and report |
 | outputs/dashboard/ | v0.9 dashboard JSON, Markdown report, and release-readiness summary |
+| outputs/release/ | v1.0 release bundle, release summary, checklist, validation surface, and non-claim locks |
 
 ## Tesseract-lite Outputs
 
@@ -753,7 +754,7 @@ Proceed to:
 
     CIK v1.0 — Stable Local-First Release
 
-CIK v0.9 is the current committed local layer. CIK v1.0 is the next target.
+CIK v1.0 is the current stable local-first release layer.
 
 <!-- CIK-V06-BEGIN -->
 ## CIK v0.6 — Core Scoring and Instrument Registry Integration Layer
@@ -990,3 +991,48 @@ CIK v1.0 is a local-first evidence compiler for Codex instrumentation runs.
 
 It does not prove truth, correctness, security, intelligence, consciousness, autonomous memory, external validity, provenance, or artifact meaning.
 <!-- CIK-ROADMAP-END -->
+
+<!-- CIK-V10-BEGIN -->
+## CIK v1.0 — Stable Local-First Release
+
+CIK v1.0 locks the validated v0.6-v0.9 stack into a stable local-first release surface.
+
+### v1.0 adds
+
+- Stable CLI contract.
+- Local install/run documentation.
+- Release bundle JSON.
+- Release summary Markdown.
+- Release checklist JSON.
+- Validation surface JSON.
+- Non-claim lock registry JSON.
+- Release notes.
+- Output contract documentation.
+- Git cleanliness gate.
+- v1.0 release lock smoke.
+
+### v1.0 commands
+
+    python -m unittest tests.test_v10_release_bundle -v
+    python -m unittest tests.test_v10_release_checklist -v
+    python -m unittest tests.test_v10_release_validator -v
+    python -m unittest tests.test_v10_non_claim_locks -v
+    python -m unittest tests.test_v10_cli_contract -v
+    python -m cik.release lock --repo-root "." --out ".\outputs"
+    python -m cik.release checklist --repo-root "." --out ".\outputs"
+    python -m cik.release locks --repo-root "." --out ".\outputs"
+    python -m cik.release validate --repo-root "." --out ".\outputs"
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v1_0_release_lock.ps1"
+
+### v1.0 output surface
+
+- `outputs/release/release_bundle_v1_0.json`
+- `outputs/release/release_summary_v1_0.md`
+- `outputs/release/release_checklist_v1_0.json`
+- `outputs/release/validation_surface_v1_0.json`
+- `outputs/release/non_claim_locks_v1_0.json`
+
+### v1.0 non-claim lock
+
+Stable release is not truth. Local validation is not formal verification. Release bundle is not provenance. Git cleanliness is not semantic validity. Release notes are not external validation.
+<!-- CIK-V10-END -->

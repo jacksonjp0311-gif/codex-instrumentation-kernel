@@ -191,3 +191,48 @@ Graph scanning now accepts both JSON object artifacts and JSON array artifacts. 
 
 Graph linkage is not truth. Queryability is not correctness. Artifact lineage is not provenance. Graph completeness is not evidence completeness. Evidence graph is not autonomous memory.
 <!-- CIK-V08-END -->
+
+<!-- CIK-V10-BEGIN -->
+## CIK v1.0 — Stable Local-First Release
+
+CIK v1.0 locks the validated v0.6-v0.9 stack into a stable local-first release surface.
+
+### New modules
+
+- `src/cik/release/bundle.py`
+- `src/cik/release/checklist.py`
+- `src/cik/release/validator.py`
+- `src/cik/release/locks.py`
+- `src/cik/release/writer.py`
+- `src/cik/release/__main__.py`
+
+### New docs
+
+- `docs/release/release_notes_v1_0.md`
+- `docs/release/release_checklist_v1_0.md`
+- `docs/release/local_install_v1_0.md`
+- `docs/release/validation_surface_v1_0.md`
+- `docs/release/non_claim_locks_v1_0.md`
+- `docs/release/output_contract_v1_0.md`
+
+### New outputs
+
+- `outputs/release/release_bundle_v1_0.json`
+- `outputs/release/release_summary_v1_0.md`
+- `outputs/release/release_checklist_v1_0.json`
+- `outputs/release/validation_surface_v1_0.json`
+- `outputs/release/non_claim_locks_v1_0.json`
+
+### New validation
+
+- `tests/test_v10_release_bundle.py`
+- `tests/test_v10_release_checklist.py`
+- `tests/test_v10_release_validator.py`
+- `tests/test_v10_non_claim_locks.py`
+- `tests/test_v10_cli_contract.py`
+- `scripts/run_cik_v1_0_release_lock.ps1`
+
+### Non-claim boundary
+
+Stable release is not truth. Local validation is not formal verification. Release bundle is not provenance. Git cleanliness is not semantic validity. Release notes are not external validation.
+<!-- CIK-V10-END -->
