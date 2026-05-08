@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 import json
 
 from .nodes import sha256_file, make_node, infer_artifact_type, infer_run_id
@@ -23,13 +23,24 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def load_json_maybe(path: Path) -> Optional[Dict[str, Any]]:
-    if path.suffix.lower() not in {".json"}:
+def load_json_maybe(path: Path) -> Optional[Any]:
+    if path.suffix.lower() != ".json":
         return None
+
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return None
+
+
+def iter_payload_dicts(payload: Optional[Any]) -> List[Dict[str, Any]]:
+    if isinstance(payload, dict):
+        return [payload]
+
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+
+    return []
 
 
 def iter_artifact_files(output_root: Path) -> List[Path]:
@@ -64,61 +75,60 @@ def add_unique_edge(edges_by_id: Dict[str, Dict[str, Any]], edge: Dict[str, Any]
     return edges_by_id[edge["id"]]
 
 
-def extract_downgrades(payload: Optional[Dict[str, Any]]) -> List[str]:
-    if not payload:
-        return []
-
+def extract_downgrades(payload: Optional[Any]) -> List[str]:
     values: List[str] = []
 
-    raw = payload.get("downgrade_reason")
-    if isinstance(raw, list):
-        values.extend([str(x) for x in raw])
-    if isinstance(raw, str):
-        values.append(raw)
+    for item in iter_payload_dicts(payload):
+        raw = item.get("downgrade_reason")
+        if isinstance(raw, list):
+            values.extend([str(x) for x in raw])
+        if isinstance(raw, str):
+            values.append(raw)
 
-    raw_surface = payload.get("composed_downgrade_surface")
-    if isinstance(raw_surface, list):
-        values.extend([str(x) for x in raw_surface])
+        raw_surface = item.get("composed_downgrade_surface")
+        if isinstance(raw_surface, list):
+            values.extend([str(x) for x in raw_surface])
 
-    classification = payload.get("classification")
-    if isinstance(classification, dict):
-        class_d = classification.get("downgrade_reason")
-        if isinstance(class_d, list):
-            values.extend([str(x) for x in class_d])
+        classification = item.get("classification")
+        if isinstance(classification, dict):
+            class_d = classification.get("downgrade_reason")
+            if isinstance(class_d, list):
+                values.extend([str(x) for x in class_d])
 
     return sorted(set([v for v in values if v]))
 
 
-def extract_claims(payload: Optional[Dict[str, Any]]) -> List[str]:
-    if not payload:
-        return []
-
+def extract_claims(payload: Optional[Any]) -> List[str]:
     claims: List[str] = []
 
-    locks = payload.get("non_claim_locks")
-    if isinstance(locks, dict):
-        claims.extend([k for k, v in locks.items() if bool(v)])
+    for item in iter_payload_dicts(payload):
+        locks = item.get("non_claim_locks")
+        if isinstance(locks, dict):
+            claims.extend([k for k, v in locks.items() if bool(v)])
 
-    boundaries = payload.get("claim_boundaries")
-    if isinstance(boundaries, dict):
-        claims.extend([k for k, v in boundaries.items() if bool(v)])
+        boundaries = item.get("claim_boundaries")
+        if isinstance(boundaries, dict):
+            claims.extend([k for k, v in boundaries.items() if bool(v)])
 
-    claim = payload.get("claim_boundary")
-    if claim:
-        claims.append(str(claim))
+        claim = item.get("claim_boundary")
+        if claim:
+            claims.append(str(claim))
 
     return sorted(set([c for c in claims if c]))
 
 
-def infer_instrument(payload: Optional[Dict[str, Any]], artifact_type: str) -> Optional[str]:
-    if payload:
-        if payload.get("instrument"):
-            return str(payload.get("instrument"))
+def infer_instrument(payload: Optional[Any], artifact_type: str) -> Optional[str]:
+    for item in iter_payload_dicts(payload):
+        instrument = item.get("instrument")
+        if instrument:
+            return str(instrument)
 
-        if payload.get("instruments") and isinstance(payload.get("instruments"), list):
+        instruments = item.get("instruments")
+        if isinstance(instruments, list):
             return "orchestration"
 
-        if payload.get("instrument_results"):
+        instrument_results = item.get("instrument_results")
+        if isinstance(instrument_results, list):
             return "orchestration"
 
     if artifact_type == "orchestration":
@@ -163,6 +173,7 @@ def build_evidence_graph(output_root: Path) -> Dict[str, Any]:
                 "artifact_type": artifact_type,
                 "relative_path": rel,
                 "size_bytes": path.stat().st_size,
+                "payload_shape": type(payload).__name__ if payload is not None else "non_json",
             },
         )
         add_unique_node(nodes_by_id, artifact_node)
@@ -280,7 +291,19 @@ def build_evidence_graph(output_root: Path) -> Dict[str, Any]:
                 instrument=instrument,
                 metadata={"relative_path": rel},
             )
-            add_unique_node(nodes_by_id, tesseract_node)
+            tesseract_node = add_unique_node(nodes_by_id, tesseract_node)
+
+            if run_id:
+                add_unique_edge(
+                    edges_by_id,
+                    make_edge(
+                        "indexed_by",
+                        run_nodes[run_id]["id"],
+                        tesseract_node["id"],
+                        support=str(path),
+                        status="artifact_backed",
+                    ),
+                )
 
         if artifact_type == "orchestration":
             orchestration_node = make_node(

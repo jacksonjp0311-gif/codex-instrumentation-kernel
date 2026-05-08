@@ -112,8 +112,8 @@
                         },
     "current_version":  "CIK v0.8",
     "current_layer":  "Evidence Graph and Cross-Run Query Layer",
-    "status":  "v0.8 validated locally; evidence graph construction, graph queries, artifact lineage, downgrade history, claim/evidence lookup, graph validation, v0.7 compatibility, and v0.6 compatibility pass.",
-    "last_updated":  "2026-05-08T14:01:25-04:00",
+    "status":  "v0.8 validated locally after payload-shape repair; evidence graph construction accepts JSON objects and arrays, graph queries pass, v0.7 compatibility passes, and v0.6 compatibility passes.",
+    "last_updated":  "2026-05-08T14:04:38-04:00",
     "cik_v05":  {
                     "version":  "CIK v0.5",
                     "layer":  "Full RootMirror Verification Layer",
@@ -226,6 +226,7 @@
                     "version":  "CIK v0.8",
                     "layer":  "Evidence Graph and Cross-Run Query Layer",
                     "current":  true,
+                    "payload_shape_repair":  "JSON object and JSON array artifacts are both accepted by graph scanning.",
                     "implementation_files":  [
                                                  "src/cik/evidence_graph/__init__.py",
                                                  "src/cik/evidence_graph/nodes.py",

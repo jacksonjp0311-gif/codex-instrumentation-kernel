@@ -56,7 +56,7 @@ def infer_artifact_type(path: Path) -> str:
     if "evidence_graph" in parts:
         return "evidence_graph"
 
-    if "orchestration" in parts:
+    if "orchestration" in parts or "orchestration" in name:
         return "orchestration"
 
     if "rootmirror_full" in parts or "rootmirror_full" in name:
@@ -89,16 +89,46 @@ def infer_artifact_type(path: Path) -> str:
     return "artifact"
 
 
-def infer_run_id(path: Path, payload: Optional[Dict[str, Any]] = None) -> Optional[str]:
-    if payload:
-        for key in [
-            "run_id",
-            "orchestration_run_id",
-            "instrument_run_id",
-            "parent_run_id",
-        ]:
-            if payload.get(key):
-                return str(payload.get(key))
+def _run_id_from_mapping(payload: Dict[str, Any]) -> Optional[str]:
+    for key in [
+        "run_id",
+        "orchestration_run_id",
+        "instrument_run_id",
+        "parent_run_id",
+    ]:
+        value = payload.get(key)
+        if value:
+            return str(value)
+
+    artifacts = payload.get("artifacts")
+    if isinstance(artifacts, dict):
+        for value in artifacts.values():
+            if isinstance(value, str):
+                inferred = infer_run_id(Path(value), None)
+                if inferred:
+                    return inferred
+
+    return None
+
+
+def infer_run_id(path: Path, payload: Optional[Any] = None) -> Optional[str]:
+    """Infer a run id from either dict JSON, list JSON, or filename.
+
+    v0.8 repair:
+    Some valid CIK artifacts are JSON arrays, especially instrument result
+    records. Those must be scanned safely instead of assuming payload.get().
+    """
+    if isinstance(payload, dict):
+        mapped = _run_id_from_mapping(payload)
+        if mapped:
+            return mapped
+
+    if isinstance(payload, list):
+        for item in payload:
+            if isinstance(item, dict):
+                mapped = _run_id_from_mapping(item)
+                if mapped:
+                    return mapped
 
     name = Path(path).name
 
@@ -107,6 +137,7 @@ def infer_run_id(path: Path, payload: Optional[Dict[str, Any]] = None) -> Option
         "_orchestration_state.json",
         "_composed_evidence_bundle.json",
         "_instrument_results.json",
+        "_run_plan.json",
         "_rootmirror_full_evidence_package.json",
         "_rootmirror_full.json",
         "_rootmirror_lite.json",

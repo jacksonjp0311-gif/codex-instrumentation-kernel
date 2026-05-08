@@ -164,6 +164,10 @@ CIK v0.8 adds a read-only evidence graph and cross-run query layer over emitted 
 - `src/cik/evidence_graph/writer.py`
 - `src/cik/evidence_graph/__main__.py`
 
+### Payload-shape repair
+
+Graph scanning now accepts both JSON object artifacts and JSON array artifacts. This is required because v0.7 emits array-shaped per-instrument result records.
+
 ### New protocol
 
 - `docs/protocols/evidence_graph_contract.md`

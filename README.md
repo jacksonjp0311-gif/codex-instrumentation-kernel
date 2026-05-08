@@ -672,6 +672,7 @@ CIK v0.8 turns emitted artifacts into a bounded local evidence graph.
 ### v0.8 adds
 
 - Read-only output artifact scan.
+- JSON object and JSON array payload support.
 - Evidence graph JSON.
 - Evidence graph Markdown report.
 - Evidence graph evidence package.
