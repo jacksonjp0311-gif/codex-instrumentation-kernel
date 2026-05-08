@@ -75,3 +75,37 @@ CIK v0.1 is CIF-B because it is useful but incomplete:
 - Evidence packages prove only their declared claim type.
 - RootMirror is not implemented yet.
 - Tesseract indexing is not implemented yet.
+
+<!-- CIK-V06-BEGIN -->
+## CIK v0.6 — Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer
+
+CIK v0.6 integrates RootMirror Full evidence into core scoring and maturity surfaces while adding a contract-aware instrument registry.
+
+### New core modules
+
+- `src/cik/core/rootmirror_full_consumer.py`
+- `src/cik/core/scoring_v06.py`
+- `src/cik/core/downgrades_v06.py`
+- `src/cik/core/maturity_v06.py`
+
+### New instrument registry modules
+
+- `src/cik/instruments/contracts_v06.py`
+- `src/cik/instruments/registry_v06.py`
+- `configs/instruments/instrument_registry.json`
+
+### New protocol
+
+- `docs/protocols/instrument_plugin_contract.md`
+
+### New validation
+
+- `tests/test_v06_rootmirror_full_scoring_integration.py`
+- `tests/test_v06_downgrade_reconciliation.py`
+- `tests/test_v06_instrument_registry_contract.py`
+- `scripts/run_cik_v06_integrated.ps1`
+
+### Non-claim boundary
+
+CIK v0.6 makes verification evidence operational. It does not make scoring truth, maturity correctness, registry validity instrument validity, or RootMirror Full security proof.
+<!-- CIK-V06-END -->

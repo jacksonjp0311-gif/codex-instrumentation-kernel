@@ -110,10 +110,10 @@
                             "cifscore_is_not_truth":  true,
                             "coherence_is_not_truth":  true
                         },
-    "current_version":  "CIK v0.5",
-    "current_layer":  "Full RootMirror Verification Layer",
-    "status":  "v0.5 validated locally; RootMirror full smoke passes with continuity_integrity_score=1.0",
-    "last_updated":  "2026-05-08T13:24:43-04:00",
+    "current_version":  "CIK v0.6",
+    "current_layer":  "Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer",
+    "status":  "v0.6 validated locally; RootMirror Full evidence consumption, downgrade reconciliation, and instrument registry contract tests pass.",
+    "last_updated":  "2026-05-08T13:33:43-04:00",
     "cik_v05":  {
                     "version":  "CIK v0.5",
                     "layer":  "Full RootMirror Verification Layer",
@@ -153,5 +153,38 @@
                                             "hash_presence_is_not_correctness":  true
                                         },
                     "next_version":  "CIK v0.6 — Core Scoring and Maturity Integration Layer"
+                },
+    "cik_v06":  {
+                    "version":  "CIK v0.6",
+                    "layer":  "Core Scoring, Maturity, Downgrade, and Instrument Registry Integration Layer",
+                    "current":  true,
+                    "implementation_files":  [
+                                                 "src/cik/core/rootmirror_full_consumer.py",
+                                                 "src/cik/core/scoring_v06.py",
+                                                 "src/cik/core/downgrades_v06.py",
+                                                 "src/cik/core/maturity_v06.py",
+                                                 "src/cik/instruments/contracts_v06.py",
+                                                 "src/cik/instruments/registry_v06.py",
+                                                 "configs/instruments/instrument_registry.json",
+                                                 "docs/protocols/instrument_plugin_contract.md",
+                                                 "scripts/run_cik_v06_integrated.ps1"
+                                             ],
+                    "test_files":  [
+                                       "tests/test_v06_rootmirror_full_scoring_integration.py",
+                                       "tests/test_v06_downgrade_reconciliation.py",
+                                       "tests/test_v06_instrument_registry_contract.py"
+                                   ],
+                    "validation_commands":  [
+                                                "python -m unittest discover -s tests",
+                                                "powershell -ExecutionPolicy Bypass -File .\\scripts\\run_cik_v06_integrated.ps1"
+                                            ],
+                    "non_claim_locks":  {
+                                            "plugin_contract_is_not_code_correctness":  true,
+                                            "registry_validity_is_not_instrument_validity":  true,
+                                            "rootmirror_full_is_not_security_proof":  true,
+                                            "maturity_is_not_correctness":  true,
+                                            "scoring_is_not_truth":  true
+                                        },
+                    "next_version":  "CIK v0.7 — Multi-Instrument Execution Orchestration and Cross-Instrument Evidence Composition Layer"
                 }
 }

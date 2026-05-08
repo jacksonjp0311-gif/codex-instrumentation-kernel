@@ -355,7 +355,7 @@ The next intended downgrade surface is integration-level, not proof-level:
 
 This is why the next version is:
 
-    CIK v0.6 — Core Scoring and Maturity Integration Layer
+    CIK v0.6 — Core Scoring, Maturity, and Instrument Registry Integration Layer
 
 ## Required local verification
 
@@ -400,6 +400,34 @@ Before locking a version:
 
 Proceed to:
 
-    CIK v0.6 — Core Scoring and Maturity Integration Layer
+    CIK v0.6 — Core Scoring, Maturity, and Instrument Registry Integration Layer
 
-Only after CIK v0.5 is committed locally.
+CIK v0.6 is the current local evolution layer after CIK v0.5.
+
+<!-- CIK-V06-BEGIN -->
+## CIK v0.6 — Core Scoring and Instrument Registry Integration Layer
+
+CIK v0.6 promotes RootMirror Full from a sidecar verification layer into a core-consumed evidence signal.
+
+### v0.6 adds
+
+- RootMirror Full evidence consumer.
+- CIFScore v0.6 component integration.
+- Downgrade reconciliation.
+- Maturity classification v0.6.
+- Contract-aware instrument plugin validation.
+- Instrument registry schema.
+- RCC Drift Instrument v0.6 registry contract.
+- Integrated v0.6 smoke script.
+
+### v0.6 commands
+
+    python -m unittest tests.test_v06_rootmirror_full_scoring_integration -v
+    python -m unittest tests.test_v06_downgrade_reconciliation -v
+    python -m unittest tests.test_v06_instrument_registry_contract -v
+    powershell -ExecutionPolicy Bypass -File ".\scripts\run_cik_v06_integrated.ps1"
+
+### v0.6 non-claim lock
+
+Integrated scoring is not truth. Maturity is not correctness. Instrument registry validity is not instrument validity. RootMirror Full remains continuity verification only.
+<!-- CIK-V06-END -->

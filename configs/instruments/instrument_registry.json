@@ -1,0 +1,58 @@
+{
+  "schema": "CIK-v0.6-instrument-registry",
+  "version": "0.6",
+  "instruments": [
+    {
+      "name": "rcc-drift",
+      "version": "0.6",
+      "status": "stable",
+      "description": "Repository-context drift measurement instrument.",
+      "input_contract": {
+        "requires_repo_path": true,
+        "requires_context_index": true,
+        "requires_rcc_map": true
+      },
+      "output_contract": {
+        "required": [
+          "state",
+          "ledger",
+          "evidence",
+          "report",
+          "semantic"
+        ],
+        "optional": [
+          "rootmirror_full",
+          "tesseract",
+          "perturbation"
+        ]
+      },
+      "evidence_contract": {
+        "schema": "CIK-evidence-package",
+        "claim_boundary": "instrumentation_only"
+      },
+      "capabilities": [
+        "dphi_repo",
+        "omega_repo",
+        "rcc_context_drift",
+        "artifact_emission"
+      ],
+      "downgrade_policy": {
+        "missing_state": "downgrade",
+        "missing_evidence": "downgrade",
+        "missing_rootmirror_full": "downgrade_until_verified",
+        "missing_tesseract": "downgrade_until_indexed"
+      },
+      "non_claim_locks": {
+        "instrument_is_not_code_correctness": true,
+        "dphi_is_not_truth": true,
+        "omega_is_not_truth": true,
+        "evidence_package_is_not_external_validation": true
+      }
+    }
+  ],
+  "non_claim_locks": {
+    "registry_presence_is_not_instrument_validation": true,
+    "plugin_contract_is_not_code_correctness": true,
+    "instrument_capability_is_not_external_validation": true
+  }
+}
