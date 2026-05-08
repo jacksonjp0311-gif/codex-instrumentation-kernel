@@ -142,7 +142,7 @@ Use this README as the first reconstruction surface, then inspect:
 
 Do not infer claims beyond emitted artifacts, source files, tests, and declared non-claim locks.
 
-## AI Operating Contract
+## AI operating contract
 
 When using an AI assistant on this repo:
 
@@ -163,7 +163,7 @@ When using an AI assistant on this repo:
 15. Do not hide failed, skipped, blocked, or warning instruments.
 16. Do not advance toward v0.8 until v0.7 remains clean from HEAD.
 
-## RCC Documentation Contract
+## RCC documentation contract
 
 This repository uses RCC-style documentation as a human/AI reconstruction surface.
 
@@ -477,7 +477,7 @@ This is why the next version is:
 
     CIK v0.8 — Evidence Graph and Cross-Run Query Layer
 
-## Required Local Verification
+## Required local verification
 
 This section preserves the executable README/RCC contract anchor required by `tests/test_rcc_readmes.py`.
 
