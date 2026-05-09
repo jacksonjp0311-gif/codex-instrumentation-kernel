@@ -182,7 +182,7 @@ When using an AI assistant on this repo:
 2. Read the repository context index.
 3. Read the RCC context map.
 4. Inspect affected modules before patching.
-5. Preserve v0.1-v0.9 behavior.
+5. Preserve v0.1-v1.0 behavior.
 6. Run tests before claiming success.
 7. Keep non-claim locks intact.
 8. Update README and mini READMEs when architecture changes.
@@ -197,7 +197,7 @@ When using an AI assistant on this repo:
 17. Do not treat dashboard visualization as validation.
 18. Do not treat Tesseract linkage as provenance.
 19. Do not treat release-readiness as release proof.
-20. Do not advance toward v1.0 until v0.9 remains clean from HEAD.
+20. Do not advance beyond v1.0 until v1.0 remains clean from HEAD.
 
 ## RCC documentation contract
 
@@ -316,7 +316,7 @@ Recommended reconstruction order:
 
 # PART III — EXECUTION AND ARTIFACT SURFACE
 
-## Current v0.9 Capability
+## Current v1.0 Capability
 
 CIK v0.9 can:
 
@@ -662,17 +662,19 @@ The full Tesseract and dashboard layer records:
 
 ## Current Downgrade Surface
 
-v0.9 closes the prior dashboard-readiness gap:
-
-    Evidence graph outputs are emitted and queryable, but they are not yet promoted into a full Tesseract artifact lattice with dashboard-ready summaries, visualization surfaces, maturity views, and public release packaging.
-
-The current remaining next-stage gap is stable release hardening:
+v1.0 closes the prior release-hardening gap:
 
     CIK is locally runnable and dashboard-ready, but it still needs v1.0 release stabilization: stable CLI promises, final README/RCC enforcement, release notes, packaging hygiene, clean install instructions, optional GitHub release readiness, and a final non-claim-preserving public engineering surface.
 
-This is why the next version is:
+The current remaining gap is not a core CIK feature gap. It is public release polish:
 
-    CIK v1.0 — Stable Local-First Release
+    GitHub repository metadata, package metadata alignment, public-facing README consistency, optional GitHub Release notes, and optional CI workflow.
+
+This is why the next patch is:
+
+    CIK v1.0.1 — Public README / Metadata Polish Patch
+
+This patch does not add a new instrumentation layer. It only aligns public-facing documentation and package metadata with the already-locked v1.0 release.
 
 ## Required local verification
 
@@ -754,7 +756,7 @@ Proceed to:
 
     CIK v1.0 — Stable Local-First Release
 
-CIK v1.0 is the current stable local-first release layer.
+CIK v1.0 is the current stable local-first release layer. CIK v1.0.1 is a public README / metadata polish patch, not a new feature layer.
 
 <!-- CIK-V06-BEGIN -->
 ## CIK v0.6 — Core Scoring and Instrument Registry Integration Layer
@@ -926,70 +928,43 @@ Visualization is not validation. Tesseract linkage is not provenance. Dashboard 
 <!-- CIK-V09-END -->
 
 <!-- CIK-ROADMAP-BEGIN -->
-## Roadmap to CIK v1.0
+## Release State After CIK v1.0
 
 ### v0.8 — Evidence Graph and Query Layer
 
 Status: Complete.
 
-Goal: transform state, ledger, RootMirror, Tesseract-lite, perturbation, registry, and orchestration outputs into a queryable evidence graph.
-
-Adds:
-
-- evidence graph JSON
-- cross-run search
-- artifact lineage queries
-- run-family grouping
-- downgrade history query
-- claim/evidence lookup
-- graph validation tests
-- graph query smoke script
-
 ### v0.9 — Full Tesseract and Dashboard-Ready Package
 
-Status: Current.
-
-Goal: evolve the evidence graph into a fuller bounded artifact lattice with dashboard-ready summaries.
-
-Adds:
-
-- full Tesseract package contract
-- dashboard JSON
-- dashboard Markdown
-- release-readiness summary
-- artifact lineage visualization surface
-- evidence maturity views
-- downgrade timeline views
-- claim-boundary views
-- RCC/CIF/AIT summary surfaces
+Status: Complete.
 
 ### v1.0 — Stable Local-First CIK Release
 
-Status: Next.
+Status: Current and locked.
 
-Goal: lock CIK as a stable local-first Codex instrumentation kernel.
+CIK v1.0 is the stable local-first release layer. It locks the validated v0.6-v0.9 stack into a reproducible local release surface.
 
-v1.0 must include:
+### v1.0.1 — Public README / Metadata Polish Patch
 
-- stable CLI
-- stable instrument plugin contract
-- stable evidence package schema
-- stable RootMirror Full verification
-- stable orchestration contract
-- stable Tesseract artifact index
-- stable evidence graph/query surface
-- stable full Tesseract/dashboard surface
-- stable README/RCC reconstruction surface
-- full local validation command
-- clean local Git state
-- release notes
-- optional GitHub release readiness
+Status: Current patch target.
+
+Goal: align GitHub-facing README text, package metadata, public repository description, topics, and release-presentation surfaces without adding new instrumentation claims.
+
+Adds:
+
+- README v1.0 public drift repair
+- pyproject metadata alignment
+- public release polish documentation
+- optional GitHub description and topics
+- optional v1.0.1 patch tag
 
 ### End-goal lock
 
 CIK v1.0 is a local-first evidence compiler for Codex instrumentation runs.
 
-It does not prove truth, correctness, security, intelligence, consciousness, autonomous memory, external validity, provenance, or artifact meaning.
+CIK v1.0.1 is a polish patch only.
+
+Neither v1.0 nor v1.0.1 proves truth, correctness, security, intelligence, consciousness, autonomous memory, external validity, provenance, or artifact meaning.
 <!-- CIK-ROADMAP-END -->
 
 <!-- CIK-V10-BEGIN -->
@@ -1036,3 +1011,31 @@ CIK v1.0 locks the validated v0.6-v0.9 stack into a stable local-first release s
 
 Stable release is not truth. Local validation is not formal verification. Release bundle is not provenance. Git cleanliness is not semantic validity. Release notes are not external validation.
 <!-- CIK-V10-END -->
+
+<!-- CIK-V101-BEGIN -->
+## CIK v1.0.1 — Public README / Metadata Polish Patch
+
+CIK v1.0.1 is a public-facing polish patch for the already-locked CIK v1.0 stable local-first release.
+
+### v1.0.1 adds
+
+- README v1.0 public drift repair.
+- pyproject package metadata alignment.
+- Public release polish documentation.
+- Optional GitHub repository description update.
+- Optional GitHub topic update.
+- v1.0.1 patch tag.
+
+### v1.0.1 does not add
+
+- No new instrumentation layer.
+- No new evidence claim.
+- No new maturity promotion.
+- No new security claim.
+- No new provenance claim.
+- No intelligence, consciousness, or autonomous-memory claim.
+
+### v1.0.1 non-claim lock
+
+Public polish is not validation. Package metadata is not correctness. GitHub presentation is not external verification. A patch tag is not proof.
+<!-- CIK-V101-END -->

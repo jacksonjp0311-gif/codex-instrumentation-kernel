@@ -110,10 +110,10 @@
                             "cifscore_is_not_truth":  true,
                             "coherence_is_not_truth":  true
                         },
-    "current_version":  "CIK v1.0",
-    "current_layer":  "Stable Local-First Release",
-    "status":  "v1.0 stable local-first release layer validated locally; release bundle, checklist, validation surface, non-claim locks, docs, v0.9/v0.8/v0.7/v0.6 compatibility, and full unit suite pass.",
-    "last_updated":  "2026-05-08T18:03:15-04:00",
+    "current_version":  "CIK v1.0.1",
+    "current_layer":  "Public README / Metadata Polish Patch",
+    "status":  "v1.0.1 public polish patch aligns README, pyproject metadata, release documentation, and GitHub-facing presentation without adding a new instrumentation layer.",
+    "last_updated":  "2026-05-09T08:39:02-04:00",
     "cik_v05":  {
                     "version":  "CIK v0.5",
                     "layer":  "Full RootMirror Verification Layer",
@@ -296,5 +296,23 @@
                                             "stable_release_is_not_truth":  true,
                                             "local_validation_is_not_formal_verification":  true
                                         }
-                }
+                },
+    "cik_v101":  {
+                     "version":  "CIK v1.0.1",
+                     "layer":  "Public README / Metadata Polish Patch",
+                     "current":  true,
+                     "changes":  [
+                                     "README v1.0 public drift repair",
+                                     "pyproject metadata alignment",
+                                     "public polish documentation",
+                                     "GitHub description/topic guidance",
+                                     "v1.0.1 patch tag"
+                                 ],
+                     "non_claim_locks":  {
+                                             "public_polish_is_not_validation":  true,
+                                             "package_metadata_is_not_correctness":  true,
+                                             "github_presentation_is_not_external_verification":  true,
+                                             "patch_tag_is_not_proof":  true
+                                         }
+                 }
 }

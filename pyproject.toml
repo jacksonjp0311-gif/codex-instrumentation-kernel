@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "codex-instrumentation-kernel"
-version = "0.1.0"
-description = "Minimal Codex CIF v2.1 runtime for repository-context drift instrumentation."
+version = "1.0.1"
+description = "Stable local-first evidence compiler for Codex instrumentation runs, release bundles, validation surfaces, and non-claim-preserving repository inspection artifacts."
 requires-python = ">=3.10"
 authors = [
   { name = "James Paul Jackson" }

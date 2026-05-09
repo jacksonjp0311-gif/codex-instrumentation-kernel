@@ -236,3 +236,21 @@ CIK v1.0 locks the validated v0.6-v0.9 stack into a stable local-first release s
 
 Stable release is not truth. Local validation is not formal verification. Release bundle is not provenance. Git cleanliness is not semantic validity. Release notes are not external validation.
 <!-- CIK-V10-END -->
+
+<!-- CIK-V101-BEGIN -->
+## CIK v1.0.1 — Public README / Metadata Polish Patch
+
+CIK v1.0.1 aligns the public GitHub-facing release presentation after the v1.0 stable local-first release.
+
+### Updated surfaces
+
+- `README.md`
+- `pyproject.toml`
+- `docs/context/repository_context_index.json`
+- `docs/architecture/rcc_context_map.md`
+- `docs/release/public_polish_v1_0_1.md`
+
+### Non-claim boundary
+
+Public polish is not validation. Package metadata is not correctness. GitHub presentation is not external verification. A patch tag is not proof.
+<!-- CIK-V101-END -->
