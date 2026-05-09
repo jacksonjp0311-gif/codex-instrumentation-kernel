@@ -1,5 +1,7 @@
 # Codex Instrumentation Kernel
 
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/863eb0e5-a00d-4171-ad8f-55587fdba464" />
+
 **Current version:** CIK v1.0 — Stable Local-First Release  
 **Status:** Runnable local-first Codex instrumentation kernel with RCC drift measurement, RootMirror-lite continuity, perturbation sweep validation, Tesseract-lite artifact indexing, Full RootMirror run-envelope verification, RootMirror Full evidence consumption, downgrade reconciliation, CIFScore v0.6 scoring, maturity v0.6 classification, contract-aware instrument registry governance, v0.7 multi-instrument orchestration with composed evidence artifacts, v0.8 evidence graph / cross-run query navigation, and v0.9 full Tesseract / dashboard-ready release-preparation packaging.  
 **Author:** James Paul Jackson / @unifiedenergy11
